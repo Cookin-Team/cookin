@@ -16,7 +16,8 @@ router.post("/", async (req, res, next) => {
       username,
       name,
       lastname,
-      password: hashPassword(password)
+      password: hashPassword(password),
+      rol: "subscriptors"
     });
     res.redirect("/");
   } else {
