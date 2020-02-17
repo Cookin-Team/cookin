@@ -8,6 +8,10 @@ const hbs = require("hbs");
 const mongoose = require("mongoose");
 const logger = require("morgan");
 const path = require("path");
+const session = require("express-session");
+const MongoStore = require("connect-mongo")(session);
+const { setLog } = require("@faable/flogg");
+setLog("express-passport");
 
 const dbUrl = process.env.DBURL;
 mongoose
@@ -35,6 +39,17 @@ app.use(cookieParser());
 // Express View engine setup
 
 app.use(
+  session({
+    secret: "keyboard cookin",
+    resave: true,
+    saveUninitialized: true,
+    store: new MongoStore({ mongooseConnection: mongoose.connection })
+  })
+);
+
+require("./passport")(app);
+
+app.use(
   require("node-sass-middleware")({
     src: path.join(__dirname, "public"),
     dest: path.join(__dirname, "public"),
@@ -48,11 +63,22 @@ hbs.registerPartials(__dirname + "/views/partials");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 
+app.use((req, res, next) => {
+  res.locals.user = req.user;
+  next();
+});
+
 // default value for title local
 app.locals.title = "COOKIN";
 
 const authRegister = require("./routes/authRegister");
 app.use("/register", authRegister);
+
+const authLogin = require("./routes/authLogin");
+app.use("/login", authLogin);
+
+const authLogout = require("./routes/authLogout");
+app.use("/logout", authLogout);
 
 const index = require("./routes/index");
 app.use("/", index);
