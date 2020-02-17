@@ -63,6 +63,14 @@ hbs.registerPartials(__dirname + "/views/partials");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(favicon(path.join(__dirname, "public", "images", "favicon.ico")));
 
+hbs.registerHelper("ifequal", function(conditional, options) {
+  if (options.hash.value === conditional) {
+    return options.fn(this);
+  } else {
+    return options.inverse(this);
+  }
+});
+
 app.use((req, res, next) => {
   res.locals.user = req.user;
   next();

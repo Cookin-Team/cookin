@@ -14,9 +14,14 @@
     <li>
       <a href="/" title="Home">Home</a>
     </li>
+
+    {{#ifequal user.rol value="admin"}}
     <li>
       <a href="/about" title="Sobre Nosotros">Sobre Nosotros</a>
+      <p>{{user.rol}}</p>
     </li>
+    {{/ifequal}}
+
     {{#if user}}
     <li>
       <a href="/logout" title="logout">Logout</a>
