@@ -5,38 +5,12 @@ const Users = require("../models/User");
 const Ingredients = require("../models/Ingredient");
 const { hashPassword, checkHashed } = require("../lib/hashing");
 
-//creamos USER data
-const dataUsers = [
-  {
-    username: "rvaquero@cookin.com",
-    password: hashPassword("123456789"),
-    name: "Rubén",
-    lastname: "Vaquero",
-    recipesFavourites: [],
-    rol: "admin"
-  },
-  {
-    username: "pilar@cookin.com",
-    password: hashPassword("123456789"),
-    name: "Pilar",
-    lastname: "García",
-    recipesFavourites: [],
-    rol: "admin"
-  },
-  {
-    username: "juan@gmail.com",
-    password: hashPassword("123456789"),
-    name: "Juan",
-    lastname: "Jiménez",
-    recipesFavourites: [],
-    rol: "subscriptors"
-  }
-];
-
 const dataRecipes = []; //Array vacio para guardar objetos recetas
 const dataIngredients = []; //Array vacio para guardar objetos ingredientes
+const dataUsers = []; //Array vacio para guardar Users
+
 const key = process.env.KEYAPI;
-const limit = 2;
+const limit = 3;
 
 //Pasamos por las limit recetas para obetener el objeto y la BASE URL
 for (let id = 1; id <= limit; id++) {
@@ -49,62 +23,106 @@ function getData(baseURL, id) {
   axios
     .get(baseURL)
     .then(dataRecipesload => {
+      //Función para ir recogiendo cada ingredients
+      createIngredients(dataRecipesload.data);
+
       //Función para ir recogiendo cada receta e ingredients
-      createConstRecipes(dataRecipesload.data);
+      createRecipes(dataRecipesload.data, dataIngredients);
 
       //Si id de las recetas coincide con el limit accedemos a base de datos y la creamos COLECCIONES
       if (id == limit) {
+        //Función para crear USERS
+        createUsers();
+
+        // console.log(
+        //   "dataRecipes",
+        //   dataRecipes,
+        //   "dataIngredients",
+        //   dataIngredients,
+        //   "dataUsers",
+        //   dataUsers
+        // );
+
         withDbConnection(async () => {
-          await Recipes.deleteMany();
-          await Recipes.create(dataRecipes);
-          await Users.deleteMany();
-          await Users.create(dataUsers);
           await Ingredients.deleteMany();
+          await Recipes.deleteMany();
+          await Users.deleteMany();
           await Ingredients.create(dataIngredients);
+          await Recipes.create(dataRecipes);
+          await Users.create(dataUsers);
         });
       }
     })
     .catch(err => console.log(err));
 }
 
-//creamos los distintos obj que incluimos en dataRecipes
-function createConstRecipes(data) {
+//creamos Ingredients
+function createIngredients(data) {
   // Recoger datos requeridos Ingredients
 
-  let ingredientsSingle = data.extendedIngredients.map(ingredient => {
+  let ingredientsList = data.extendedIngredients.map(ingredient => {
     return ingredient.name;
   });
 
-  console.log("ingredientsSingle", ingredientsSingle);
+  let objIngredient;
 
   //Ingredient Object
-
-  ingredientsSingle.forEach(ingredient => {
-    const objIngredient = {
-      name: ingredient
+  ingredientsList.forEach(ingredients => {
+    objIngredient = {
+      name: ingredients
     };
     dataIngredients.push(objIngredient);
   });
+}
+
+//creamos Recipes
+function createRecipes(data) {
+  //console.log("dataIngredients", dataIngredients);
+
+  let ingredientsID = Ingredients.map(ingredient => ingredient.id);
 
   // Recoger datos requeridos Receta
-
-  let ingredientsArray = data.extendedIngredients.map(ingredient => {
-    return {
-      name: ingredient.name,
-      quantity:
-        ingredient.measures.metric.amount +
-        " " +
-        ingredient.measures.metric.unitShort
-    };
-  });
   const objRecipe = {
     title: data.title,
     time: data.readyInMinutes,
     servings: data.servings,
     types: data.dishTypes,
-    ingredients: ingredientsArray,
+    ingredients: ingredientsID,
     description: data.instructions,
     imageSrc: data.image
   };
   dataRecipes.push(objRecipe);
+}
+
+//creamos USER data
+function createUsers() {
+  return (dataUsers = [
+    {
+      username: "rvaquero@cookin.com",
+      password: hashPassword("123456789"),
+      name: "Rubén",
+      lastname: "Vaquero",
+      recipesFavourites: [],
+      ingredientsList: [],
+      rol: "admin"
+    },
+    {
+      username: "pilar@cookin.com",
+      password: hashPassword("123456789"),
+      name: "Pilar",
+      lastname: "García",
+      recipesFavourites: [],
+      ingredientsList: [],
+      rol: "admin"
+    },
+    {
+      username: "juan@gmail.com",
+      password: hashPassword("123456789"),
+      name: "Juan",
+      lastname: "Jiménez",
+      recipesFavourites: [],
+      ingredientsList: [],
+      rol: "subscriptors"
+    }
+  ]);
 }

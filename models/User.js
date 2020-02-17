@@ -8,7 +8,7 @@ const userSchema = new Schema(
     name: String,
     lastname: String,
     recipesFavourites: Array,
-    ingredientsList: Array,
+    ingredientsList: [{ type: Schema.Types.ObjectId, ref: "Ingredients" }],
     rol: String
   },
   {
