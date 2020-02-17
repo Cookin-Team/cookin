@@ -34,15 +34,6 @@ function getData(baseURL, id) {
         //Función para crear USERS
         createUsers();
 
-        // console.log(
-        //   "dataRecipes",
-        //   dataRecipes,
-        //   "dataIngredients",
-        //   dataIngredients,
-        //   "dataUsers",
-        //   dataUsers
-        // );
-
         withDbConnection(async () => {
           await Ingredients.deleteMany();
           await Recipes.deleteMany();
