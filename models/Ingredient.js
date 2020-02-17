@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const ingredientSchema = new Schema(
   {
-    name: { type: String, unique: true, index: true }
+    name: { type: String, unique: true }
   },
   {
     timestamps: true
@@ -11,12 +11,5 @@ const ingredientSchema = new Schema(
 );
 
 const Ingredients = mongoose.model("Ingredients", ingredientSchema);
-
-Ingredients.collection.createIndexes([
-  {
-    key: { name: 1 },
-    name: "name"
-  }
-]);
 
 module.exports = Ingredients;

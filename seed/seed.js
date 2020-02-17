@@ -4,57 +4,47 @@ const Recipes = require("../models/Recipe");
 const Users = require("../models/User");
 const Ingredients = require("../models/Ingredient");
 const { hashPassword, checkHashed } = require("../lib/hashing");
+const recipeData = require("../data/recipe.json");
 
 const dataRecipes = []; //Array vacio para guardar objetos recetas
 const dataIngredients = []; //Array vacio para guardar objetos ingredientes
-const dataUsers = []; //Array vacio para guardar Users
+let dataUsers = []; //Array vacio para guardar Users
 
 const key = process.env.KEYAPI;
 const limit = 3;
 
 //Pasamos por las limit recetas para obetener el objeto y la BASE URL
 for (let id = 1; id <= limit; id++) {
-  const baseURL = `https://api.spoonacular.com/recipes/${id}/information?apiKey=${key}`;
-  getData(baseURL, id);
+  // const baseURL = `https://api.spoonacular.com/recipes/${id}/information?apiKey=${key}`;
+  getData(recipeData, id);
+  // console.log(baseURL);
 }
 
 //Obtenemos la baseURL para crear las colecciones
 function getData(baseURL, id) {
-  axios
-    .get(baseURL)
-    .then(dataRecipesload => {
-      //Función para ir recogiendo cada ingredients
-      createIngredients(dataRecipesload.data);
+  createIngredients(recipeData);
 
-      //Función para ir recogiendo cada receta e ingredients
-      createRecipes(dataRecipesload.data, dataIngredients);
+  //Función para ir recogiendo cada receta e ingredients
+  createRecipes(recipeData, dataIngredients);
 
-      //Si id de las recetas coincide con el limit accedemos a base de datos y la creamos COLECCIONES
-      if (id == limit) {
-        //Función para crear USERS
-        createUsers();
+  //Si id de las recetas coincide con el limit accedemos a base de datos y la creamos COLECCIONES
+  if (id == limit) {
+    //Función para crear USERS
+    createUsers();
 
-        // console.log(
-        //   "dataRecipes",
-        //   dataRecipes,
-        //   "dataIngredients",
-        //   dataIngredients,
-        //   "dataUsers",
-        //   dataUsers
-        // );
-
-        withDbConnection(async () => {
-          await Ingredients.deleteMany();
-          await Recipes.deleteMany();
-          await Users.deleteMany();
-          await Ingredients.create(dataIngredients);
-          await Recipes.create(dataRecipes);
-          await Users.create(dataUsers);
-        });
-      }
-    })
-    .catch(err => console.log(err));
+    withDbConnection(async () => {
+      await Ingredients.deleteMany();
+      await Recipes.deleteMany();
+      await Users.deleteMany();
+      const ingredients = await Ingredients.create(dataIngredients);
+      await Recipes.create(makeRelation(ingredients));
+      await Users.create(dataUsers);
+    });
+  }
 }
+
+const makeRelation = ingredientsWithIds =>
+  ingredientsWithIds.map(ingredient => ingredient._id);
 
 //creamos Ingredients
 function createIngredients(data) {
@@ -71,15 +61,19 @@ function createIngredients(data) {
     objIngredient = {
       name: ingredients
     };
+
     dataIngredients.push(objIngredient);
   });
 }
 
 //creamos Recipes
 function createRecipes(data) {
+  let ingredientsIDs;
   //console.log("dataIngredients", dataIngredients);
 
-  let ingredientsID = Ingredients.map(ingredient => ingredient.id);
+  if (dataIngredients.length >= 3) {
+    ingredientsIDs = dataIngredients.map(ingredient => ingredient._id);
+  }
 
   // Recoger datos requeridos Receta
   const objRecipe = {
@@ -87,7 +81,7 @@ function createRecipes(data) {
     time: data.readyInMinutes,
     servings: data.servings,
     types: data.dishTypes,
-    ingredients: ingredientsID,
+    ingredients: ingredientsIDs,
     description: data.instructions,
     imageSrc: data.image
   };
