@@ -1,9 +1,12 @@
 <h1>{{title}} Register</h1>
 
 <form id="formRegister" method="POST" action="/register">
-  {{> input type="text" name="name" label="Name" placeholder="Your Name" required="true"}}
-  {{> input type="text" name="lastname" label="Lastname" placeholder="Your Lastname" required="true"}}
-  {{> input type="email" name="username" label="Email" placeholder="Your email" required="true"}}
-  {{> input id="myPassword" type="password" name="password" label="Password" placeholder="Your password" required="true"}}
+  {{> input type="text" name="name" label="Name" placeholder="Your Name"}}
+  {{> input type="text" name="lastname" label="Lastname" placeholder="Your Lastname"}}
+  {{> input type="text" name="street" label="Street" placeholder="Your street"}}
+  {{> input type="text" name="city" label="City" placeholder="Your city"}}
+  {{> input type="text" name="country" label="Country" placeholder="Your country"}}
+  {{> input type="email" name="username" label="Email" placeholder="Your email"}}
+  {{> input id="myPassword" type="password" name="password" label="Password" placeholder="Your password"}}
   <button type="submit" class="btn">Register</button>
 </form>

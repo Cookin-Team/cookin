@@ -7,6 +7,9 @@ const userSchema = new Schema(
     password: String,
     name: String,
     lastname: String,
+    street: String,
+    city: String,
+    country: String,
     recipesFavourites: Array,
     ingredientsList: [{ type: Schema.Types.ObjectId, ref: "Ingredients" }],
     rol: String
