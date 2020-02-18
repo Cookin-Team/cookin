@@ -2,27 +2,25 @@
  * Basic typography style for copy text
  */
 
-
 h1 {
-  color: $text-color;
+  color: $c-dark;
   font-size: 2.2em;
   margin: 20px 0;
 }
 
 h2 {
-  color: $text-color;
+  color: $c-dark;
   font-size: 1.8em;
   margin: 15px 0;
 }
 
 p {
-  color: $text-color;
+  color: $c-medium;
   font-size: 1.4rem;
   line-height: 1.6rem;
   margin: 12px 0;
 
   &::selection {
-    background-color: $text-color;
     color: white;
   }
 }
