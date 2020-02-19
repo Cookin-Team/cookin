@@ -11,6 +11,9 @@ img {
 }
 
 html {
-  font: 400 normal 10px/1.45rem $primary-font;
-  background: red;
+  font: normal 10px/1.45rem $secondary-font;
+}
+main {
+  padding: 1.5rem;
+  box-sizing: border-box;
 }

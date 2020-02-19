@@ -6,10 +6,14 @@
   max-width: 100%; /* 1 */
   margin-left: auto; /* 2 */
   margin-right: auto; /* 2 */
-  padding-left: 20px; /* 3 */
-  padding-right: 20px; /* 3 */
+  padding-left: 2rem; /* 3 */
+  padding-right: 2rem; /* 3 */
   width: 100%; /* 1 */
- }
+}
+
+.strong {
+  font-weight: bold;
+}
 
 %fixed {
   position: fixed;
@@ -25,7 +29,7 @@
   @include animation(fadeIn 1s forwards);
 }
 
-@-webkit-keyframes fadeIn{
+@-webkit-keyframes fadeIn {
   0% {
     opacity: 0;
   }
@@ -35,7 +39,7 @@
   }
 }
 
-@keyframes fadeIn{
+@keyframes fadeIn {
   0% {
     opacity: 0;
   }

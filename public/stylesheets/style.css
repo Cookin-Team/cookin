@@ -1,6 +1,8 @@
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
+@import url("https://fonts.googleapis.com/css?family=DM+Serif+Display&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap");
 html {
   font-family: sans-serif;
   /* 1 */
@@ -402,27 +404,49 @@ template {
 img {
   object-fit: cover; }
 
+html {
+  font: normal 10px/1.45rem "Montserrat", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", sans-serif; }
+
+main {
+  padding: 1.5rem;
+  box-sizing: border-box; }
+
 /**
  * Basic typography style for copy text
  */
 h1 {
-  color: #0095ff;
-  font-size: 2.2em;
-  margin: 20px 0; }
+  font-family: h1 primary-font;
+  color: #060607;
+  font-size: 4em;
+  margin: 2.8rem 0; }
 
 h2 {
-  color: #0095ff;
-  font-size: 1.8em;
-  margin: 15px 0; }
+  color: #060607;
+  font-size: 3em;
+  margin: 2.2rem 0; }
+
+h3 {
+  color: #060607;
+  font-size: 2.8em;
+  margin: 2rem 0; }
+
+h4 {
+  color: #060607;
+  font-size: 2.2em;
+  margin: 2rem 0; }
 
 p {
-  color: #0095ff;
-  font-size: 1.4rem;
-  line-height: 1.6rem;
-  margin: 12px 0; }
+  color: #3a3f5c;
+  font-size: 1.6rem;
+  line-height: 1.8rem;
+  margin: 0 0 1.2rem 0; }
   p::selection {
-    background-color: #0095ff;
     color: white; }
+
+a {
+  color: #3a3f5c;
+  font-size: 1.6rem;
+  line-height: 1.8rem; }
 
 .container {
   max-width: 100%;
@@ -431,27 +455,15 @@ p {
   /* 2 */
   margin-right: auto;
   /* 2 */
-  padding-left: 20px;
+  padding-left: 2rem;
   /* 3 */
-  padding-right: 20px;
+  padding-right: 2rem;
   /* 3 */
   width: 100%;
   /* 1 */ }
 
-nav {
-  position: fixed;
-  width: 100%; }
-
-.about-section .about-text-wrapper .text-wrapper {
-  position: -webkit-sticky;
-  position: sticky; }
-
-.description-section p {
-  -webkit-animation: fadeIn 1s forwards;
-  -moz-animation: fadeIn 1s forwards;
-  -ms-animation: fadeIn 1s forwards;
-  -o-animation: fadeIn 1s forwards;
-  animation: fadeIn 1s forwards; }
+.strong {
+  font-weight: bold; }
 
 @-webkit-keyframes fadeIn {
   0% {
@@ -465,68 +477,119 @@ nav {
   100% {
     opacity: 1; } }
 
-nav {
+.menu {
+  background-color: white;
   display: flex;
-  align-items: center;
-  top: 0;
-  height: 64px;
-  z-index: 10;
-  -webkit-backdrop-filter: blur(5px);
-  backdrop-filter: blur(5px); }
-  nav ul {
-    list-style: none;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: space-between;
+  -webkit-box-shadow: 1px 1px 10px 0 rgba(58, 63, 92, 0.3);
+  box-shadow: 1px 1px 10px 0 rgba(58, 63, 92, 0.3); }
+  .menu .logo-wrapper {
     display: flex;
-    width: 95%;
-    justify-content: flex-end;
-    margin: 0 auto; }
-    nav ul li {
-      margin: 0 10px; }
-      nav ul li a {
-        color: #0095ff;
-        font-weight: 100;
-        text-decoration: none;
-        font-size: 1rem;
-        letter-spacing: 2px;
-        -webkit-transition: color 0.15s linear;
-        -moz-transition: color 0.15s linear;
-        -ms-transition: color 0.15s linear;
-        -o-transition: color 0.15s linear;
-        transition: color 0.15s linear; }
-        nav ul li a:hover {
-          color: #003961; }
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid 0.1rem rgba(58, 63, 92, 0.3); }
+    .menu .logo-wrapper .logo {
+      margin: 1.5rem 0; }
+      .menu .logo-wrapper .logo img {
+        height: 7rem;
+        margin: 0 1.5rem; }
+    .menu .logo-wrapper .hamburguer {
+      width: 2.5rem;
+      height: 1.7rem;
+      margin: 0 2rem;
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+      justify-content: space-between; }
+      .menu .logo-wrapper .hamburguer span {
+        width: 100%;
+        background: #3a3f5c;
+        height: 0.3rem; }
+  .menu .menu-wrapper {
+    padding: 0 2rem; }
+    .menu .menu-wrapper .menu-active ul {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-items: space-around;
+      padding: 0; }
+      .menu .menu-wrapper .menu-active ul li {
+        list-style-type: none; }
+        .menu .menu-wrapper .menu-active ul li a {
+          display: block;
+          padding: 1.5rem;
+          text-decoration: none;
+          box-sizing: border-box;
+          border: solid 0.2rem transparent; }
+          .menu .menu-wrapper .menu-active ul li a.active {
+            border: solid 0.2rem #4dbc4b; }
+  @media (min-width: 992px) {
+    .menu {
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: center; }
+      .menu #menu-mobile {
+        display: none; }
+      .menu .logo-wrapper {
+        border: 0px; }
+      .menu .menu-wrapper .menu-active ul {
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center; } }
+  @media (min-width: 1200px) {
+    .menu #menu-mobile {
+      display: none; }
+    .menu .logo-wrapper {
+      border: 0px; }
+    .menu .menu-wrapper {
+      padding: 0 2rem 0 1.5rem; } }
 
-.description-section {
-  padding-top: 64px;
-  height: calc(100vh - 64px);
-  display: flex;
-  flex-wrap: wrap;
-  align-content: center; }
-  .description-section p {
-    width: 80%;
-    margin: 12px auto; }
+.btn {
+  font: normal 1.6rem "Montserrat", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  color: #ffffff;
+  background-color: #4dbc4b;
+  padding: 2rem;
+  margin: 2rem 0;
+  border-radius: 5rem;
+  min-width: 20rem; }
+  .btn:hover {
+    -webkit-transition: all 1s 0.1s;
+    -moz-transition: all 1s 0.1s;
+    -ms-transition: all 1s 0.1s;
+    -o-transition: all 1s 0.1s;
+    transition: all 1s 0.1s;
+    background-color: lime; }
 
-.about-section {
-  height: calc(100vh + 64px);
-  display: flex; }
-  .about-section .img-wrapper, .about-section .about-text-wrapper {
-    width: 50%; }
-  .about-section .img-wrapper img {
-    width: 100%; }
-  .about-section .about-text-wrapper .text-wrapper {
-    padding: 10% 0;
-    width: 90%;
-    margin: 0 auto;
-    top: 0; }
-  .about-section .about-text-wrapper .technologies-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); }
-
-.icon {
-  width: 72px;
-  justify-self: center;
-  max-height: 72px;
-  object-fit: contain;
-  align-self: center;
-  margin: 10px 0; }
+form {
+  background-color: #ffffff;
+  border: solid 0.1rem rgba(58, 63, 92, 0.3);
+  border-radius: 0.8rem;
+  padding: 2.5rem;
+  margin: 2.5rem 0; }
+  form label {
+    font-size: 1.6rem;
+    margin-bottom: 1.1rem;
+    color: #3a3f5c; }
+  form input,
+  form select {
+    height: 4.5rem;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    font: normal 1.6rem "Montserrat", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    color: #3a3f5c;
+    margin-bottom: 1.5rem; }
+  form.vertical {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: initial;
+    align-items: space-between; }
+    form.vertical .box-input {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: initial;
+      align-items: space-between; }
 
 /*# sourceMappingURL=style.css.map */

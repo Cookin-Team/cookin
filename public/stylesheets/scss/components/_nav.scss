@@ -1,0 +1,91 @@
+.menu {
+  background-color: white;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: space-between;
+  -webkit-box-shadow: 1px 1px 10px 0 $c-medium-rgba;
+  box-shadow: 1px 1px 10px 0 $c-medium-rgba;
+  .logo-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid 0.1rem $c-medium-rgba;
+    .logo {
+      margin: 1.5rem 0;
+      img {
+        height: 7rem;
+        margin: 0 1.5rem;
+      }
+    }
+    .hamburguer {
+      width: 2.5rem;
+      height: 1.7rem;
+      margin: 0 2rem;
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+      justify-content: space-between;
+      span {
+        width: 100%;
+        background: $c-medium;
+        height: 0.3rem;
+      }
+    }
+  }
+
+  .menu-wrapper {
+    padding: 0 2rem;
+    .menu-active {
+      ul {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: space-around;
+        padding: 0;
+        li {
+          list-style-type: none;
+          a {
+            display: block;
+            padding: 1.5rem;
+            text-decoration: none;
+            box-sizing: border-box;
+            border: solid 0.2rem transparent;
+            &.active {
+              border: solid 0.2rem $c-primary;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include lg {
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    #menu-mobile {
+      display: none;
+    }
+    .logo-wrapper {
+      border: 0px;
+    }
+    .menu-wrapper .menu-active ul {
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  @include xl {
+    #menu-mobile {
+      display: none;
+    }
+    .logo-wrapper {
+      border: 0px;
+    }
+    .menu-wrapper {
+      padding: 0 2rem 0 1.5rem;
+    }
+  }
+}

@@ -6,41 +6,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>{{title}}</title>
-  <link rel="stylesheet" href="public/stylesheets/style.css" />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 
 <body>
-  <ul>
-    <li>
-      <a href="/" title="Home">Home</a>
-    </li>
-
-    {{#ifequal user.rol value="admin"}}
-    <li>
-      <a href="/about" title="Sobre Nosotros">Sobre Nosotros</a>
-      <p>{{user.rol}}</p>
-    </li>
-    {{/ifequal}}
-
-    {{#if user}}
-    <li>
-      <a href="/logout" title="logout">Logout</a>
-    </li>
-    {{else}}
-    <li>
-      <a href="/register" title="Registrarse">Registrarse</a>
-    </li>
-    <li>
-      <a href="/login" title="Login">Login</a>
-    </li>
-    {{/if}}
-  </ul>
-  </nav>
-  {{#if user}}
-  <p>{{user.username}}</p>
-  {{/if}}
-  {{{body}}}
-
+  <header>
+    {{>nav}}
+  </header>
+  <main>
+    {{{body}}}
+  </main>
   <script src="/javascripts/script.js"></script>
 </body>
 

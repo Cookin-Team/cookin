@@ -1,0 +1,33 @@
+form {
+  background-color: $c-light;
+  border: solid 0.1rem $c-medium-rgba;
+  border-radius: 0.8rem;
+  padding: 2.5rem;
+  margin: 2.5rem 0;
+  label {
+    font-size: 1.6rem;
+    margin-bottom: 1.1rem;
+    color: $c-medium;
+  }
+  input,
+  select {
+    height: 4.5rem;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    font: normal 1.6rem $secondary-font;
+    color: $c-medium;
+    margin-bottom: 1.5rem;
+  }
+  &.vertical {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: initial;
+    align-items: space-between;
+    .box-input {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: initial;
+      align-items: space-between;
+    }
+  }
+}
