@@ -6,7 +6,8 @@
     "start": "node ./bin/www",
     "dev": "DEBUG=modulo-2-cookin:* nodemon ./bin/www",
     "dev-windows": "nodemon ./bin/www",
-    "seed-db": "node seed/seed.js"
+    "seed-db-recipes": "node seed/seed-ingredients_recipes.js",
+    "seed-db-users": "node seed/seed-users.js"
   },
   "dependencies": {
     "@faable/flogg": "^1.1.5",
