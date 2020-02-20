@@ -1,9 +1,12 @@
-<h1>{{title}} Register</h1>
-
-<form class="vertical" id="formRegister" method="POST" action="/register">
-  {{> input type="text" name="name" label="Name" placeholder="Your Name" required="true"}}
-  {{> input type="text" name="lastname" label="Lastname" placeholder="Your Lastname" required="true"}}
-  {{> input type="email" name="username" label="Email" placeholder="Your email" required="true"}}
-  {{> input id="myPassword" type="password" name="password" label="Password" placeholder="Your password" required="true"}}
-  <button type="submit" class="btn">Register</button>
-</form>
+<section class="container-fluid">
+  <div class="container">
+    <form class="vertical form-small" id="formRegister" method="POST" action="/register">
+      <h1>Regístrate</h1>
+      {{> input type="text" name="name" label="Nombre" placeholder="Tu nombre" required="true"}}
+      {{> input type="text" name="lastname" label="Apellido" placeholder="Tus Apellidos" required="true"}}
+      {{> input type="email" name="username" label="Email" placeholder="email@email.com" required="true"}}
+      {{> input id="myPassword" type="password" name="password" label="Password" placeholder="Crea una contraseña" required="true"}}
+      <button type="submit" class="btn">¡Únete!</button>
+    </form>
+  </div>
+</section>

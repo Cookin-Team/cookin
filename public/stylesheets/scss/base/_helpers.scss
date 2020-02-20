@@ -2,15 +2,21 @@
 // This file contains CSS helper classes.
 // -----------------------------------------------------------------------------
 
+.container-fluid,
 .container {
-  max-width: 100%; /* 1 */
-  margin-left: auto; /* 2 */
-  margin-right: auto; /* 2 */
-  padding-left: 2rem; /* 3 */
-  padding-right: 2rem; /* 3 */
-  width: 100%; /* 1 */
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2rem;
+  width: 100%;
 }
 
+.container {
+  max-width: 120rem;
+}
+.row {
+  margin: 0 -1.5rem;
+}
 .strong {
   font-weight: bold;
 }
