@@ -1,0 +1,11 @@
+<h1>{{title}} PROFILE</h1>
+
+<form id="formRegister" method="POST" action="/edit/{{user._id}}">
+  {{> input type="email" name="username" label="Email" placeholder=user.username value=user.username}}
+  {{> input type="text" name="name" label="Name" placeholder=user.name value=user.name}}
+  {{> input type="text" name="lastname" label="Lastname" placeholder=user.lastname value=user.lastname}}
+  {{> input type="text" name="street" label="Street" placeholder=user.street value=user.street}}
+  {{> input type="text" name="city" label="City" placeholder=user.city value=user.city}}
+  {{> input type="text" name="country" label="Country" placeholder=user.country value=user.country}}
+  <button type="submit" class="btn">Actualizar</button>
+</form>

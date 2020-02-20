@@ -1,12 +1,15 @@
+
 <section class="container-fluid">
   <div class="container">
-    <form class="vertical form-small" id="formRegister" method="POST" action="/register">
-      <h1>Regístrate</h1>
-      {{> input type="text" name="name" label="Nombre" placeholder="Tu nombre" required="true"}}
-      {{> input type="text" name="lastname" label="Apellido" placeholder="Tus Apellidos" required="true"}}
-      {{> input type="email" name="username" label="Email" placeholder="email@email.com" required="true"}}
-      {{> input id="myPassword" type="password" name="password" label="Password" placeholder="Crea una contraseña" required="true"}}
-      <button type="submit" class="btn">¡Únete!</button>
-    </form>
+    <form id="formRegister" method="POST" action="/register">
+  {{> input type="text" name="name" label="Name" placeholder="Your Name"}}
+  {{> input type="text" name="lastname" label="Lastname" placeholder="Your Lastname"}}
+  {{> input type="text" name="street" label="Street" placeholder="Your street"}}
+  {{> input type="text" name="city" label="City" placeholder="Your city"}}
+  {{> input type="text" name="country" label="Country" placeholder="Your country"}}
+  {{> input type="email" name="username" label="Email" placeholder="Your email"}}
+  {{> input id="myPassword" type="password" name="password" label="Password" placeholder="Your password"}}
+  <button type="submit" class="btn">Register</button>
+</form>
   </div>
 </section>

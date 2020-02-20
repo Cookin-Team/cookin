@@ -11,13 +11,24 @@ router.get("/", isLoggedOut(), async (req, res, next) => {
 });
 
 router.post("/", isLoggedOut(), async (req, res, next) => {
-  const { username, password, name, lastname } = req.body;
+  const {
+    username,
+    password,
+    name,
+    lastname,
+    street,
+    city,
+    country
+  } = req.body;
   const existingUser = await Users.findOne({ username });
   if (!existingUser) {
     const newUser = await Users.create({
       username,
       name,
       lastname,
+      street,
+      city,
+      country,
       password: hashPassword(password),
       rol: "subscriptors"
     });
