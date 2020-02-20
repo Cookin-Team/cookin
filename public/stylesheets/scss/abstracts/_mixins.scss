@@ -69,6 +69,15 @@
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}', endColorstr='#{$to}');
 }
 
+//Selection
+@mixin selection {
+  ::-moz-selection {
+    @content;
+  }
+  ::selection {
+    @content;
+  }
+}
 // Small devices
 @mixin sm {
   @media (min-width: #{$screen-sm-min}) {

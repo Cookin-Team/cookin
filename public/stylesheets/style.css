@@ -408,6 +408,12 @@ img {
 html {
   font: normal 10px/1.45rem "Montserrat", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
   background-color: #f8f8f8; }
+  html ::-moz-selection {
+    color: #ffffff;
+    background: #ff7959; }
+  html ::selection {
+    color: #ffffff;
+    background: #ff7959; }
 
 main {
   padding: 1.5rem;
