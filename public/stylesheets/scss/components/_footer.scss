@@ -11,9 +11,12 @@
     align-content: space-between;
     background-color: $c-primary;
     @include gradient($c-secondary, $c-primary);
-    .logo img {
-      height: 7rem;
-      margin: 2rem;
+    .logo {
+      text-align: center;
+      img {
+        height: 7rem;
+        margin: 2rem;
+      }
     }
     .info {
       padding: 2rem;
@@ -48,7 +51,12 @@
 }
 
 @include lg {
-  .footer .wrapper .info {
-    flex-flow: row nowrap;
+  .footer .wrapper {
+    .logo {
+      text-align: left;
+    }
+    .info {
+      flex-flow: row nowrap;
+    }
   }
 }

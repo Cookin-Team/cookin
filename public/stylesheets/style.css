@@ -742,9 +742,11 @@ form {
   background: -webkit-gradient(linear, left top, left bottom, from(#a1db93), to(#4dbc4b));
   background: -moz-linear-gradient(top, #a1db93, #4dbc4b);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a1db93', endColorstr='#4dbc4b'); }
-  .footer .wrapper .logo img {
-    height: 7rem;
-    margin: 2rem; }
+  .footer .wrapper .logo {
+    text-align: center; }
+    .footer .wrapper .logo img {
+      height: 7rem;
+      margin: 2rem; }
   .footer .wrapper .info {
     padding: 2rem;
     display: flex;
@@ -769,6 +771,8 @@ form {
       font-weight: bold; }
 
 @media (min-width: 992px) {
+  .footer .wrapper .logo {
+    text-align: left; }
   .footer .wrapper .info {
     flex-flow: row nowrap; } }
 
