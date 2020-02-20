@@ -1,6 +1,5 @@
-<h1>{{title}} PROFILE</h1>
-
-<form id="formRegister" method="POST" action="/edit/{{user._id}}">
+<form id="formProfile" class="profile" method="POST" action="/edit/{{user._id}}">
+  <h1>Hola {{user.name}} {{user.lastname}}</h1>
   {{> input type="email" name="username" label="Email" placeholder=user.username value=user.username}}
   {{> input type="text" name="name" label="Name" placeholder=user.name value=user.name}}
   {{> input type="text" name="lastname" label="Lastname" placeholder=user.lastname value=user.lastname}}
