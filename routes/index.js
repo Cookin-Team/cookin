@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const Users = require("../models/User");
+const { isLoggedIn, isLoggedOut } = require("../lib/isLoggedMiddleware");
 
 /* GET home page */
 router.get("/", (req, res, next) => {
@@ -13,12 +14,12 @@ router.get("/about", (req, res, next) => {
 });
 
 /* GET profile page */
-router.get("/profile", (req, res, next) => {
+router.get("/profile", isLoggedIn(), (req, res, next) => {
   res.render("profile");
 });
 
 //Editar profile y actualizar
-router.post("/edit/:id", async (req, res, next) => {
+router.post("/edit/:id", isLoggedIn(), async (req, res, next) => {
   try {
     const { id } = req.params;
     const { username, name, lastname, street, city, country } = req.body;

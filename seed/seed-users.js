@@ -40,7 +40,7 @@ let dataUsers = [
     country: "España",
     recipesFavourites: [],
     ingredientsList: [],
-    rol: "subscriptors"
+    rol: "subscriber"
   }
 ];
 

@@ -30,7 +30,7 @@ router.post("/", isLoggedOut(), async (req, res, next) => {
       city,
       country,
       password: hashPassword(password),
-      rol: "subscriptors"
+      rol: "subscriber"
     });
     req.login(newUser, () => {
       return res.redirect("/");
