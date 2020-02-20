@@ -4,8 +4,7 @@
   flex-flow: column nowrap;
   justify-content: center;
   align-items: space-between;
-  -webkit-box-shadow: 1px 1px 10px 0 $c-medium-rgba;
-  box-shadow: 1px 1px 10px 0 $c-medium-rgba;
+  @include box-shadow(0.1rem, 0.1rem, 1rem, 0, $c-medium-rgba, false);
   .logo-wrapper {
     display: flex;
     flex-flow: row nowrap;
@@ -27,14 +26,28 @@
       flex-flow: column nowrap;
       align-items: center;
       justify-content: space-between;
+      cursor: pointer;
       span {
         width: 100%;
         background: $c-medium;
         height: 0.3rem;
+        @include transition(all, 0.3s, ease-in-out);
+      }
+      &.active {
+        span {
+          &:nth-child(2) {
+            opacity: 0;
+          }
+          &:nth-child(1) {
+            @include transform(translateY(13px) rotate(45deg));
+          }
+          &:nth-child(3) {
+            @include transform(translateY(-13px) rotate(-45deg));
+          }
+        }
       }
     }
   }
-
   .menu-wrapper {
     padding: 0 2rem;
     .menu-active {
@@ -53,6 +66,10 @@
             box-sizing: border-box;
             border: solid 0.2rem transparent;
             &.active {
+              border: solid 0.2rem $c-primary;
+            }
+            &:hover {
+              @include transition(all, 0.4s, ease-in-out);
               border: solid 0.2rem $c-primary;
             }
           }

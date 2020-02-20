@@ -8,10 +8,27 @@
   background-color: $c-primary;
   padding: 2rem;
   margin: 2rem 0;
+  border: none;
   border-radius: 5rem;
   min-width: 20rem;
+  outline: none;
+  background-size: 300% 100%;
+
   &:hover {
-    @include transition(all 1s 0.1s);
-    background-color: lime;
+    cursor: pointer;
+    @include transition(all, 0.4s, ease-in-out);
+    background-color: $c-secondary;
+    background-position: 100% 0;
+    background-image: linear-gradient(
+      to right,
+      $c-primary,
+      $c-secondary,
+      $c-primary,
+      $c-primary
+    );
+    @include box-shadow(0.1rem, 0.4rem, 1.5rem, 0, $c-medium-rgba, false);
+  }
+  &:focus {
+    outline: none !important;
   }
 }
