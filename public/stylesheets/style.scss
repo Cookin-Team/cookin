@@ -13,8 +13,8 @@
 @import "scss/layout/header", "scss/layout/navbar", "scss/layout/footer";
 
 // 5. Components
-@import "scss/components/button", "scss/components/description",
-  "scss/components/about", "scss/components/icon";
+@import "scss/components/nav", "scss/components/button", "scss/components/icon",
+  "scss/components/form", "scss/components/footer";
 
 // 6. Page-specific styles
 @import "scss/pages/home";

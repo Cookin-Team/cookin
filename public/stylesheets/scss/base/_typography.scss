@@ -2,27 +2,44 @@
  * Basic typography style for copy text
  */
 
-
 h1 {
-  color: $text-color;
-  font-size: 2.2em;
-  margin: 20px 0;
+  font-family: &primary-font;
+  color: $c-dark;
+  font-size: 4.8em;
+  margin: 2.8rem 0;
 }
 
 h2 {
-  color: $text-color;
-  font-size: 1.8em;
-  margin: 15px 0;
+  color: $c-dark;
+  font-size: 3em;
+  margin: 2.2rem 0;
+}
+
+h3 {
+  color: $c-dark;
+  font-size: 2.8em;
+  margin: 2rem 0;
+}
+
+h4 {
+  color: $c-dark;
+  font-size: 2.2em;
+  margin: 2rem 0;
 }
 
 p {
-  color: $text-color;
-  font-size: 1.4rem;
-  line-height: 1.6rem;
-  margin: 12px 0;
+  color: $c-medium;
+  font-size: 1.6rem;
+  line-height: 1.8rem;
+  margin: 0 0 1.2rem 0;
 
   &::selection {
-    background-color: $text-color;
     color: white;
   }
+}
+
+a {
+  color: $c-medium;
+  font-size: 1.6rem;
+  line-height: 1.8rem;
 }

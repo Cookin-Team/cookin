@@ -1,7 +1,10 @@
-<h1>{{title}} Register</h1>
-
-<form id="formRegister" method="POST" action="/login">
-  {{> input type="email" name="username" label="Email" placeholder="Your email" required="true"}}
-  {{> input id="myPassword" type="password" name="password" label="Password" placeholder="Your password" required="true"}}
-  <button type="submit" class="btn">Login</button>
-</form>
+<section class="container-fluid">
+  <div class="container">
+    <form class="vertical form-small" id="formRegister" method="POST" action="/login">
+      <h1>Accede</h1>
+      {{> input type="email" name="username" label="Email" placeholder="email@email.com" required="true"}}
+      {{> input id="myPassword" type="password" name="password" label="Password" placeholder="Tu contraseña" required="true"}}
+      <button type="submit" class="btn">Login</button>
+    </form>
+  </div>
+</section>

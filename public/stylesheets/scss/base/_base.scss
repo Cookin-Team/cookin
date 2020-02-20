@@ -9,3 +9,16 @@
 img {
   object-fit: cover;
 }
+
+html {
+  font: normal 10px/1.45rem $secondary-font;
+  background-color: $c-grey-1;
+  @include selection {
+    color: $c-light;
+    background: $c-accent;
+  }
+}
+main {
+  padding: 1.5rem;
+  box-sizing: border-box;
+}

@@ -2,14 +2,24 @@
 // This file contains CSS helper classes.
 // -----------------------------------------------------------------------------
 
+.container-fluid,
 .container {
-  max-width: 100%; /* 1 */
-  margin-left: auto; /* 2 */
-  margin-right: auto; /* 2 */
-  padding-left: 20px; /* 3 */
-  padding-right: 20px; /* 3 */
-  width: 100%; /* 1 */
- }
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2rem;
+  width: 100%;
+}
+
+.container {
+  max-width: 120rem;
+}
+.row {
+  margin: 0 -1.5rem;
+}
+.strong {
+  font-weight: bold;
+}
 
 %fixed {
   position: fixed;
@@ -25,7 +35,7 @@
   @include animation(fadeIn 1s forwards);
 }
 
-@-webkit-keyframes fadeIn{
+@-webkit-keyframes fadeIn {
   0% {
     opacity: 0;
   }
@@ -35,7 +45,7 @@
   }
 }
 
-@keyframes fadeIn{
+@keyframes fadeIn {
   0% {
     opacity: 0;
   }

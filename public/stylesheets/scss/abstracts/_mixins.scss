@@ -19,12 +19,20 @@
   }
 }
 
-@mixin transition($args) {
-  -webkit-transition: $args;
-  -moz-transition: $args;
-  -ms-transition: $args;
-  -o-transition: $args;
-  transition: $args;
+/* @include transition(all,2s,ease-out); */
+@mixin transition($what: all, $time: 0.2s, $how: ease-in-out) {
+  -webkit-transition: $what $time $how;
+  -moz-transition: $what $time $how;
+  -ms-transition: $what $time $how;
+  -o-transition: $what $time $how;
+  transition: $what $time $how;
+}
+
+@mixin transform($args) {
+  -webkit-transform: $args;
+  -moz-transform: $args;
+  -ms-transform: $args;
+  transform: $args;
 }
 
 @mixin animation($args) {
@@ -33,4 +41,67 @@
   -ms-animation: $args;
   -o-animation: $args;
   animation: $args;
+}
+
+//Box Shadow
+@mixin box-shadow($top, $left, $blur, $size, $color, $inset: false) {
+  @if $inset {
+    -webkit-box-shadow: inset $top $left $blur $size $color;
+    -moz-box-shadow: inset $top $left $blur $size $color;
+    box-shadow: inset $top $left $blur $size $color;
+  } @else {
+    -webkit-box-shadow: $top $left $blur $size $color;
+    -moz-box-shadow: $top $left $blur $size $color;
+    box-shadow: $top $left $blur $size $color;
+  }
+}
+
+//Gradient
+@mixin gradient($from, $to) {
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from($from),
+    to($to)
+  );
+  background: -moz-linear-gradient(top, $from, $to);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$from}', endColorstr='#{$to}');
+}
+
+//Selection
+@mixin selection {
+  ::-moz-selection {
+    @content;
+  }
+  ::selection {
+    @content;
+  }
+}
+// Small devices
+@mixin sm {
+  @media (min-width: #{$screen-sm-min}) {
+    @content;
+  }
+}
+
+// Medium devices
+@mixin md {
+  @media (min-width: #{$screen-md-min}) {
+    @content;
+  }
+}
+
+// Large devices
+@mixin lg {
+  @media (min-width: #{$screen-lg-min}) {
+    @content;
+  }
+}
+
+// Extra large devices
+@mixin xl {
+  @media (min-width: #{$screen-xl-min}) {
+    @content;
+  }
 }
