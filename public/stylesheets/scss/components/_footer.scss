@@ -11,14 +11,17 @@
     align-content: space-between;
     background-color: $c-primary;
     @include gradient($c-secondary, $c-primary);
-    .logo img {
-      height: 7rem;
-      margin: 2rem;
+    .logo {
+      text-align: center;
+      img {
+        height: 7rem;
+        margin: 2rem;
+      }
     }
     .info {
       padding: 2rem;
       display: flex;
-      flex-flow: row nowrap;
+      flex-flow: column nowrap;
       justify-content: space-between;
       align-items: center;
       .rrss ul {
@@ -43,6 +46,17 @@
           font-weight: bold;
         }
       }
+    }
+  }
+}
+
+@include lg {
+  .footer .wrapper {
+    .logo {
+      text-align: left;
+    }
+    .info {
+      flex-flow: row nowrap;
     }
   }
 }

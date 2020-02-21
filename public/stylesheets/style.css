@@ -425,22 +425,26 @@ main {
 h1 {
   font-family: h1 primary-font;
   color: #060607;
+  line-height: 1.1;
   font-size: 4.8em;
   margin: 2.8rem 0; }
 
 h2 {
   color: #060607;
   font-size: 3em;
+  line-height: 1.1;
   margin: 2.2rem 0; }
 
 h3 {
   color: #060607;
   font-size: 2.8em;
+  line-height: 1.1;
   margin: 2rem 0; }
 
 h4 {
   color: #060607;
   font-size: 2.2em;
+  line-height: 1.1;
   margin: 2rem 0; }
 
 p {
@@ -495,11 +499,14 @@ a {
   -moz-box-shadow: 0.1rem 0.1rem 1rem 0 rgba(58, 63, 92, 0.3);
   box-shadow: 0.1rem 0.1rem 1rem 0 rgba(58, 63, 92, 0.3); }
   .menu .logo-wrapper {
+    align-items: center;
+    background: #fff;
+    border-bottom: solid 0.1rem rgba(58, 63, 92, 0.3);
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
-    align-items: center;
-    border-bottom: solid 0.1rem rgba(58, 63, 92, 0.3); }
+    position: relative;
+    z-index: 2; }
     .menu .logo-wrapper .logo {
       margin: 1.5rem 0; }
       .menu .logo-wrapper .logo img {
@@ -531,12 +538,32 @@ a {
         -ms-transform: translateY(13px) rotate(45deg);
         transform: translateY(13px) rotate(45deg); }
       .menu .logo-wrapper .hamburguer.active span:nth-child(3) {
-        -webkit-transform: translateY(-13px) rotate(-45deg);
-        -moz-transform: translateY(-13px) rotate(-45deg);
-        -ms-transform: translateY(-13px) rotate(-45deg);
-        transform: translateY(-13px) rotate(-45deg); }
+        -webkit-transform: translateY(-1px) rotate(-47deg);
+        -moz-transform: translateY(-1px) rotate(-47deg);
+        -ms-transform: translateY(-1px) rotate(-47deg);
+        transform: translateY(-1px) rotate(-47deg); }
   .menu .menu-wrapper {
-    padding: 0 2rem; }
+    background: #fff;
+    opacity: 0;
+    padding: 0 2rem;
+    top: 108px;
+    position: fixed;
+    width: 100%;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out; }
+    .menu .menu-wrapper.active {
+      -webkit-transition: all 0.4s ease-in-out;
+      -moz-transition: all 0.4s ease-in-out;
+      -ms-transition: all 0.4s ease-in-out;
+      -o-transition: all 0.4s ease-in-out;
+      transition: all 0.4s ease-in-out;
+      opacity: 1;
+      position: fixed;
+      top: 108px;
+      z-index: 1; }
     .menu .menu-wrapper .menu-active ul {
       display: flex;
       flex-flow: column nowrap;
@@ -569,10 +596,25 @@ a {
         display: none; }
       .menu .logo-wrapper {
         border: 0px; }
-      .menu .menu-wrapper .menu-active ul {
-        flex-flow: row nowrap;
-        justify-content: space-between;
-        align-items: center; } }
+      .menu .menu-wrapper {
+        background: none;
+        opacity: 1;
+        top: initial;
+        position: relative;
+        width: initial; }
+        .menu .menu-wrapper.active {
+          -webkit-transition: none 0.2s ease-in-out;
+          -moz-transition: none 0.2s ease-in-out;
+          -ms-transition: none 0.2s ease-in-out;
+          -o-transition: none 0.2s ease-in-out;
+          transition: none 0.2s ease-in-out;
+          opacity: 0;
+          position: relative;
+          top: initial; }
+        .menu .menu-wrapper .menu-active ul {
+          flex-flow: row nowrap;
+          justify-content: space-between;
+          align-items: center; } }
   @media (min-width: 1200px) {
     .menu #menu-mobile {
       display: none; }
@@ -610,51 +652,60 @@ a {
 
 form {
   background-color: #ffffff;
-  border: solid 0.1rem #f8f8f8;
   border-radius: 0.8rem;
-  padding: 2.5rem;
+  border: solid 0.1rem #f8f8f8;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   margin: 2.5rem 0;
+  padding: 2.5rem;
   -webkit-box-shadow: 0.1rem 0.1rem 1rem 0 rgba(58, 63, 92, 0.3);
   -moz-box-shadow: 0.1rem 0.1rem 1rem 0 rgba(58, 63, 92, 0.3);
   box-shadow: 0.1rem 0.1rem 1rem 0 rgba(58, 63, 92, 0.3); }
-  form label {
-    font-size: 1.6rem;
-    margin-bottom: 1.1rem;
-    color: #3a3f5c; }
-  form input,
-  form select,
-  form textarea {
-    box-sizing: border-box;
-    font: normal 1.6rem "Montserrat", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-    color: #3a3f5c;
-    margin-bottom: 1.5rem;
-    outline: none;
-    outline-style: none;
-    box-shadow: none;
-    border-color: transparent;
-    border: solid 0.1rem #c4c4c4; }
-    form input:-webkit-input-placeholder,
-    form select:-webkit-input-placeholder,
-    form textarea:-webkit-input-placeholder {
-      color: rgba(58, 63, 92, 0.3); }
-    form input:focus,
-    form select:focus,
-    form textarea:focus {
-      -webkit-transition: all 0.5s ease;
-      -moz-transition: all 0.5s ease;
-      -ms-transition: all 0.5s ease;
-      -o-transition: all 0.5s ease;
-      transition: all 0.5s ease;
-      color: #060607;
-      border: solid 0.1rem #4dbc4b; }
-      form input:focus::-webkit-input-placeholder,
-      form select:focus::-webkit-input-placeholder,
-      form textarea:focus::-webkit-input-placeholder {
-        color: #060607; }
-  form input,
-  form select {
-    height: 4.5rem;
-    padding: 1.5rem; }
+  form h1 {
+    width: 100%; }
+  form .box-input {
+    display: flex;
+    width: 100%;
+    flex-direction: column; }
+    form .box-input label {
+      font-size: 1.6rem;
+      margin-bottom: 1.1rem;
+      color: #3a3f5c; }
+    form .box-input input,
+    form .box-input select,
+    form .box-input textarea {
+      box-sizing: border-box;
+      font: normal 1.6rem "Montserrat", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+      color: #3a3f5c;
+      margin-bottom: 1.5rem;
+      outline: none;
+      outline-style: none;
+      box-shadow: none;
+      border-color: transparent;
+      border: solid 0.1rem #c4c4c4; }
+      form .box-input input:-webkit-input-placeholder,
+      form .box-input select:-webkit-input-placeholder,
+      form .box-input textarea:-webkit-input-placeholder {
+        color: rgba(58, 63, 92, 0.3); }
+      form .box-input input:focus,
+      form .box-input select:focus,
+      form .box-input textarea:focus {
+        -webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+        -ms-transition: all 0.5s ease;
+        -o-transition: all 0.5s ease;
+        transition: all 0.5s ease;
+        color: #060607;
+        border: solid 0.1rem #4dbc4b; }
+        form .box-input input:focus::-webkit-input-placeholder,
+        form .box-input select:focus::-webkit-input-placeholder,
+        form .box-input textarea:focus::-webkit-input-placeholder {
+          color: #060607; }
+    form .box-input input,
+    form .box-input select {
+      height: 4.5rem;
+      padding: 1.5rem; }
   form.vertical {
     display: flex;
     flex-flow: column nowrap;
@@ -692,6 +743,11 @@ form {
       color: #ff7959; }
     .card a:hover img {
       opacity: 0.8; }
+@media (min-width: 992px) {
+  form .box-input {
+    width: 49%; }
+  .form-small .box-input {
+    width: 100%; } }
 
 .footer .path {
   line-height: 0;
@@ -707,13 +763,15 @@ form {
   background: -webkit-gradient(linear, left top, left bottom, from(#a1db93), to(#4dbc4b));
   background: -moz-linear-gradient(top, #a1db93, #4dbc4b);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a1db93', endColorstr='#4dbc4b'); }
-  .footer .wrapper .logo img {
-    height: 7rem;
-    margin: 2rem; }
+  .footer .wrapper .logo {
+    text-align: center; }
+    .footer .wrapper .logo img {
+      height: 7rem;
+      margin: 2rem; }
   .footer .wrapper .info {
     padding: 2rem;
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     justify-content: space-between;
     align-items: center; }
     .footer .wrapper .info .rrss ul {
@@ -738,5 +796,11 @@ form {
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: stretch; }
+
+@media (min-width: 992px) {
+  .footer .wrapper .logo {
+    text-align: left; }
+  .footer .wrapper .info {
+    flex-flow: row nowrap; } }
 
 /*# sourceMappingURL=style.css.map */

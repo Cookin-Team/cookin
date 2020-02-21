@@ -1,43 +1,56 @@
 form {
   background-color: $c-light;
-  border: solid 0.1rem $c-grey-1;
   border-radius: 0.8rem;
-  padding: 2.5rem;
+  border: solid 0.1rem $c-grey-1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   margin: 2.5rem 0;
+  padding: 2.5rem;
   @include box-shadow(0.1rem, 0.1rem, 1rem, 0, $c-medium-rgba, false);
-  label {
-    font-size: 1.6rem;
-    margin-bottom: 1.1rem;
-    color: $c-medium;
+  h1 {
+    width: 100%;
   }
-  input,
-  select,
-  textarea {
-    box-sizing: border-box;
-    font: normal 1.6rem $secondary-font;
-    color: $c-medium;
-    margin-bottom: 1.5rem;
-    outline: none;
-    outline-style: none;
-    box-shadow: none;
-    border-color: transparent;
-    border: solid 0.1rem $c-grey-2;
-    &:-webkit-input-placeholder {
-      color: $c-medium-rgba;
+  .box-input {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+
+    label {
+      font-size: 1.6rem;
+      margin-bottom: 1.1rem;
+      color: $c-medium;
     }
-    &:focus {
-      @include transition(all, 0.5s, ease);
-      color: $c-dark;
-      border: solid 0.1rem $c-primary;
-      &::-webkit-input-placeholder {
+    input,
+    select,
+    textarea {
+      box-sizing: border-box;
+      font: normal 1.6rem $secondary-font;
+      color: $c-medium;
+      margin-bottom: 1.5rem;
+      outline: none;
+      outline-style: none;
+      box-shadow: none;
+      border-color: transparent;
+      border: solid 0.1rem $c-grey-2;
+      &:-webkit-input-placeholder {
+        color: $c-medium-rgba;
+      }
+      &:focus {
+        @include transition(all, 0.5s, ease);
         color: $c-dark;
+        border: solid 0.1rem $c-primary;
+        &::-webkit-input-placeholder {
+          color: $c-dark;
+        }
       }
     }
-  }
-  input,
-  select {
-    height: 4.5rem;
-    padding: 1.5rem;
+
+    input,
+    select {
+      height: 4.5rem;
+      padding: 1.5rem;
+    }
   }
 
   &.vertical {
@@ -58,5 +71,15 @@ form {
   &.form-small {
     max-width: 45rem;
     margin: 0 auto;
+  }
+}
+@include lg {
+  form {
+    .box-input {
+      width: 49%;
+    }
+  }
+  &.form-small .box-input {
+    width: 100%;
   }
 }

@@ -6,6 +6,8 @@ require("./strategies/local");
 
 passport.serializeUser((user, cb) => {
   cb(null, user._id);
+  user.visits += 1;
+  user.save();
 });
 
 passport.deserializeUser((id, cb) => {

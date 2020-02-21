@@ -1,15 +1,15 @@
-
 <section class="container-fluid">
   <div class="container">
-    <form id="formRegister" method="POST" action="/register">
-  {{> input type="text" name="name" label="Name" placeholder="Your Name"}}
-  {{> input type="text" name="lastname" label="Lastname" placeholder="Your Lastname"}}
-  {{> input type="text" name="street" label="Street" placeholder="Your street"}}
-  {{> input type="text" name="city" label="City" placeholder="Your city"}}
-  {{> input type="text" name="country" label="Country" placeholder="Your country"}}
-  {{> input type="email" name="username" label="Email" placeholder="Your email"}}
-  {{> input id="myPassword" type="password" name="password" label="Password" placeholder="Your password"}}
-  <button type="submit" class="btn">Register</button>
-</form>
+    <form id="formRegister" class="register" method="POST" action="/register">
+      <h1>Register</h1>
+      {{> input type="text" name="name" label="Name" placeholder="Your Name"}}
+      {{> input type="text" name="lastname" label="Lastname" placeholder="Your Lastname"}}
+      {{> input type="text" name="street" label="Street" placeholder="Your street"}}
+      {{> input type="text" name="city" label="City" placeholder="Your city"}}
+      {{> input type="text" name="country" label="Country" placeholder="Your country"}}
+      {{> input type="email" name="username" label="Email" placeholder="Your email"}}
+      {{> input id="myPassword" type="password" name="password" label="Password" placeholder="Your password"}}
+      <button type="submit" class="btn">Register</button>
+    </form>
   </div>
 </section>

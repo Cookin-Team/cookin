@@ -12,7 +12,8 @@ const userSchema = new Schema(
     country: String,
     recipesFavourites: Array,
     ingredientsList: [{ type: Schema.Types.ObjectId, ref: "Ingredients" }],
-    rol: String
+    visits: { type: Number, default: 0 },
+    rol: { type: String, default: "subscriber" }
   },
   {
     timestamps: true
