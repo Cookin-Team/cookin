@@ -29,10 +29,11 @@ router.post("/", isLoggedOut(), async (req, res, next) => {
       street,
       city,
       country,
-      password: hashPassword(password),
-      rol: "subscriber"
+      password: hashPassword(password)
     });
     req.login(newUser, () => {
+      req.user.visits += 1;
+      req.user.save();
       return res.redirect("/");
     });
   } else {
