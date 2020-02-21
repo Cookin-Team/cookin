@@ -1,0 +1,29 @@
+<h1>Hola {{user.name}} {{user.lastname}}</h1>
+<h2>Lista de Users</h2>
+
+<p>Total:{{usersTotal}}</p>
+
+<ul class="user-list">
+  {{#each usersList}}
+
+  <li>
+    <p>ID: {{this._id}}</p>
+    <p>NAME: {{this.name}} {{this.lastname}}</p>
+    <p>EMAIL: {{this.username}}</p>
+    <p>VISITS: {{this.visits}}</p>
+    <form action="/usuarios/delete/{{this._id}}
+      " method="POST">
+      <button type="submit">Borrar</button>
+    </form>
+    <form action="/usuarios/edit/{{this._id}}" method="POST">
+      <select name="rol">
+        <option selected disabled hidden>{{this.rol}}</option>
+        <option value="admin">Admin</option>
+        <option value="subscriber">Suscriber</option>
+      </select>
+      <button type="submit">Actualizar</button>
+    </form>
+  </li>
+
+  {{/each}}
+</ul>

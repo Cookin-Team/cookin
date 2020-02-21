@@ -38,4 +38,45 @@ router.post("/edit/:id", isLoggedIn(), async (req, res, next) => {
   }
 });
 
+/* GET Users ADMIN page LIST */
+router.get("/usuarios", isLoggedIn(), async (req, res, next) => {
+  try {
+    const usersList = await Users.find();
+    const usersTotal = usersList.length;
+    res.render("profile-admin", { usersList, usersTotal });
+  } catch (err) {
+    res.send(`error: ${err}`);
+    next();
+  }
+});
+
+//Delete Users ADMIN page LIST
+router.post("/usuarios/delete/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const foundObjFromId = await Users.findById(id);
+    await Users.findByIdAndRemove(foundObjFromId);
+    res.redirect("/usuarios");
+  } catch (err) {
+    res.send(`error: ${err}`);
+    next();
+  }
+});
+
+//Editar Users ADMIN page LIST
+router.post("/usuarios/edit/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { rol } = req.body;
+    await Users.findByIdAndUpdate(id, {
+      rol
+    });
+    console.log("rol", rol);
+    res.redirect("/usuarios");
+  } catch (err) {
+    res.send(`error: ${err}`);
+    next();
+  }
+});
+
 module.exports = router;
