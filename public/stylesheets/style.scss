@@ -14,10 +14,10 @@
 
 // 5. Components
 @import "scss/components/nav", "scss/components/button", "scss/components/icon",
-  "scss/components/form", "scss/components/footer";
+  "scss/components/form", "scss/components/card", "scss/components/footer";
 
 // 6. Page-specific styles
-@import "scss/pages/home";
+@import "scss/pages/home", "scss/pages/recipes";
 
 // 7. Themes
 @import "scss/themes/default";

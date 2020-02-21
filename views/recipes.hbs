@@ -1,0 +1,12 @@
+<div class="container-fluid">
+  <div class="container">
+    <h1>Recetas</h1>
+    <div class="recipes-wrapper">
+      {{#each recipes}}
+      {{#with this}}
+      {{>recipe}}
+      {{/with}}
+      {{/each}}
+    </div>
+  </div>
+</div>

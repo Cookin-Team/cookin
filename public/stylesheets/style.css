@@ -722,6 +722,27 @@ form {
     max-width: 45rem;
     margin: 0 auto; }
 
+.card {
+  max-width: 31%;
+  margin: 1%;
+  background-color: #ffffff;
+  border: solid 0.1rem #f8f8f8;
+  border-radius: 0.8rem;
+  padding: 1.5rem;
+  -webkit-box-shadow: 0.1rem 0.1rem 1rem 0 rgba(58, 63, 92, 0.3);
+  -moz-box-shadow: 0.1rem 0.1rem 1rem 0 rgba(58, 63, 92, 0.3);
+  box-shadow: 0.1rem 0.1rem 1rem 0 rgba(58, 63, 92, 0.3); }
+  .card img {
+    width: 100%; }
+  .card h3 {
+    font-size: 1.8rem;
+    line-height: 2.2rem; }
+  .card a {
+    text-decoration: none; }
+    .card a:hover h3 {
+      color: #ff7959; }
+    .card a:hover img {
+      opacity: 0.8; }
 @media (min-width: 992px) {
   form .box-input {
     width: 49%; }
@@ -769,6 +790,12 @@ form {
     .footer .wrapper .info .copy-rigth p {
       color: #ffffff;
       font-weight: bold; }
+
+.recipes-wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: stretch; }
 
 @media (min-width: 992px) {
   .footer .wrapper .logo {
