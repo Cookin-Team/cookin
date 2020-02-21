@@ -88,6 +88,9 @@ app.use("/login", authLogin);
 const authLogout = require("./routes/authLogout");
 app.use("/logout", authLogout);
 
+const recipes = require("./routes/recipes");
+app.use("/", recipes);
+
 const index = require("./routes/index");
 app.use("/", index);
 
