@@ -1,3 +1,142 @@
 // -----------------------------------------------------------------------------
 // This file contains all styles related to the header of the site/application.
 // -----------------------------------------------------------------------------
+.menu {
+  background-color: white;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: space-between;
+  @include box-shadow(0.1rem, 0.1rem, 1rem, 0, $c-medium-rgba, false);
+  .logo-wrapper {
+    align-items: center;
+    background: #fff;
+    border-bottom: solid 0.1rem $c-medium-rgba;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+    .logo {
+      margin: 1.5rem 0;
+      img {
+        height: 7rem;
+        margin: 0 1.5rem;
+      }
+    }
+    .hamburguer {
+      width: 2.5rem;
+      height: 1.7rem;
+      margin: 0 2rem;
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      span {
+        width: 100%;
+        background: $c-medium;
+        height: 0.3rem;
+        @include transition(all, 0.3s, ease-in-out);
+      }
+      &.active {
+        span {
+          &:nth-child(2) {
+            opacity: 0;
+          }
+          &:nth-child(1) {
+            @include transform(translateY(13px) rotate(45deg));
+          }
+          &:nth-child(3) {
+            @include transform(translateY(-1px) rotate(-47deg));
+          }
+        }
+      }
+    }
+  }
+  .menu-wrapper {
+    background: #fff;
+    opacity: 0;
+    padding: 0 2rem;
+    top: 108px;
+    position: fixed;
+    width: 100%;
+    z-index: -1;
+    @include transition(all, 0.4s, ease-in-out);
+    &.active {
+      @include transition(all, 0.4s, ease-in-out);
+      opacity: 1;
+      position: fixed;
+      top: 108px;
+      z-index: 1;
+    }
+    .menu-active {
+      ul {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: space-around;
+        padding: 0;
+        li {
+          list-style-type: none;
+          a {
+            display: block;
+            padding: 1.5rem;
+            text-decoration: none;
+            box-sizing: border-box;
+            border: solid 0.2rem transparent;
+            &.active {
+              border: solid 0.2rem $c-primary;
+            }
+            &:hover {
+              @include transition(all, 0.4s, ease-in-out);
+              border: solid 0.2rem $c-primary;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include lg {
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    #menu-mobile {
+      display: none;
+    }
+    .logo-wrapper {
+      border: 0px;
+    }
+    .menu-wrapper {
+      background: none;
+      opacity: 1;
+      top: initial;
+      position: relative;
+      z-index: 1;
+      width: initial;
+      &.active {
+        @include transition(none);
+        opacity: 0;
+        position: relative;
+        top: initial;
+      }
+      .menu-active ul {
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  }
+  @include xl {
+    #menu-mobile {
+      display: none;
+    }
+    .logo-wrapper {
+      border: 0px;
+    }
+    .menu-wrapper {
+      padding: 0 2rem 0 1.5rem;
+    }
+  }
+}
