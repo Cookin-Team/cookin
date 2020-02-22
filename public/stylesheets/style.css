@@ -416,7 +416,7 @@ html {
     background: #ff7959; }
 
 main {
-  padding: 1.5rem;
+  padding: 1.5rem 0;
   box-sizing: border-box; }
 
 /**
@@ -464,9 +464,9 @@ a {
   h1 {
     font-size: 4.2em; }
   h2 {
-    font-size: 2.8em; }
+    font-size: 2.5em; }
   h3 {
-    font-size: 2.6em; }
+    font-size: 2.3em; }
   h4 {
     font-size: 2em; }
   p {
@@ -827,6 +827,65 @@ form {
       color: #ff7959; }
     .card a:hover img {
       opacity: 0.8; }
+
+.col-2 {
+  display: flex;
+  flex-direction: column-reverse; }
+  .col-2 .box-img img {
+    display: block;
+    width: 100%; }
+  .col-2 .content .btn {
+    display: inline-block;
+    text-align: center; }
+
+.col-3 {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px; }
+  .col-3 div {
+    margin-top: 20px; }
+    .col-3 div .box-img {
+      max-width: 150px;
+      margin: 0 auto; }
+    .col-3 div h2 {
+      margin-top: 7px; }
+
+@media (min-width: 768px) {
+  .col-2 {
+    flex-direction: row;
+    justify-content: flex-end; }
+    .col-2.inverse {
+      flex-direction: row-reverse; }
+      .col-2.inverse .content {
+        padding: 10px 0 10px 20px; }
+    .col-2 .box-img {
+      width: 50%; }
+    .col-2 .content {
+      padding: 10px 20px 10px 0;
+      width: 50%; }
+  .col-3 {
+    flex-direction: row;
+    justify-content: space-between; }
+    .col-3 div {
+      background: #f1eeee;
+      width: 32%;
+      padding: 10px 20px 5px;
+      border-radius: 5px; }
+      .col-3 div .box-img {
+        padding: 0;
+        max-width: 100px;
+        width: 100%; }
+      .col-3 div h2 {
+        text-align: center; } }
+
+@media (min-width: 1200px) {
+  .col-2 {
+    align-items: center; }
+    .col-2inverse .content {
+      padding: 0 0 0 80px; }
+    .col-2 .content {
+      padding: 0 80px 0 0;
+      width: 40%; } }
 
 .recipes-wrapper {
   display: flex;
