@@ -71,7 +71,6 @@ router.post("/usuarios/edit/:id", async (req, res) => {
     await Users.findByIdAndUpdate(id, {
       rol
     });
-    console.log("rol", rol);
     res.redirect("/usuarios");
   } catch (err) {
     res.send(`error: ${err}`);
