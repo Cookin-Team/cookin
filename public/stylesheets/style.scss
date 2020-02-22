@@ -10,14 +10,14 @@
   "scss/base/helpers";
 
 // 4. Layout-related sections
-@import "scss/layout/header", "scss/layout/navbar", "scss/layout/footer";
+@import "scss/layout/header", "scss/layout/footer";
 
 // 5. Components
-@import "scss/components/nav", "scss/components/button", "scss/components/icon",
-  "scss/components/form", "scss/components/card", "scss/components/footer";
+@import "scss/components/button", "scss/components/icon", "scss/components/form",
+  "scss/components/card";
 
 // 6. Page-specific styles
-@import "scss/pages/home", "scss/pages/recipes";
+@import "scss/pages/home", "scss/pages/recipes", "scss/pages/_profile-admin";
 
 // 7. Themes
 @import "scss/themes/default";
