@@ -38,10 +38,10 @@
 
           <!--{{/ifequal}}-->
           {{#ifequal user.rol value="admin"}}
-          <form action="/recipes/addfavorite/{{recipe.id}}" method="POST">
-            <button type="submit">ADD TO FAVORITES</button>
+          <form action="/recipes/add-favorite/{{recipe.id}}" method="POST">
+            <button type="submit"><i class="fas fa-heart"></i>ADD TO FAVORITES</button>
           </form>
-          <form action="/recipes/shoppinglist/{{recipe.id}}" method="POST">
+          <form action="/recipes/shopping-list/{{recipe.id}}" method="POST">
             <button type="submit">ADD TO SHOPPING LIST</button>
           </form>
           <div><a href="/recipes/new">ADD NEW RECIPE</a></div>
