@@ -103,11 +103,17 @@ router.post("/recipes/edit/:id", isLoggedIn(), async (req, res, next) => {
     const ids = await Promise.all(
       newIngredients
         .filter(ing => ing)
-        .map(element => {
-          return Ingredient.findOne({ name: element }, "id").exec();
+        .map(ingredient => {
+          return Ingredient.findOneAndUpdate(
+            { name: ingredient },
+            { name: ingredient },
+            {
+              new: true,
+              upsert: true
+            }
+          );
         })
     );
-    console.log("P R O M E S A S", ids);
     const { title, time, servings } = req.body;
     const dataRecipe = {
       title: title,
@@ -116,9 +122,15 @@ router.post("/recipes/edit/:id", isLoggedIn(), async (req, res, next) => {
       ingredients: ids.map(ingredient => ingredient._id)
     };
 
-    await Recipe.findByIdAndUpdate(id, dataRecipe);
-    const recipe = await Recipe.findById(id);
-    res.render("recipes/show", { recipe });
+    Recipe.findByIdAndUpdate(id, dataRecipe, { new: true })
+      .populate("ingredients")
+      .then(recipe => {
+        if (!recipe) {
+          return res.status(404).render("not-found");
+        }
+        res.render("recipes/show", { recipe });
+      })
+      .catch(next);
   } catch (error) {
     next(error);
   }
