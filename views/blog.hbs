@@ -1,0 +1,41 @@
+<div class="container-fluid">
+  <div class="container">
+    <h1>RECIPES BLOG</h1>
+    {{#each recipe}}
+    <h2>{{this.title}}</h2>
+    <div class="wrapper">
+      <div class="left">
+        <div class="image"><img src="{{this.imageSrc}}" alt="{{this.title}}"></div>
+        <div class="description">
+          <p>{{this.description}}</p>
+        </div>
+      </div>
+      <div class="right">
+        <div class="details">
+          <p class="type">
+            {{#each this.types}}
+            <span class="tag">{{this}}</span>
+            {{/each}}
+          </p>
+          <p class="time">{{this.time}} "</p>
+          <p class="servings">{{this.servings}}
+            {{#checkplural this.servings 1}}
+            servings
+            {{else}}
+            serving
+            {{/checkplural}}
+          </p>
+          <div class="ingredients">
+            <p>Ingredients:</p>
+            <ul>
+              {{#each this.ingredients}}
+              <li class="ingredient">{{this.name}}</li>
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</div>
