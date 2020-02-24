@@ -20,4 +20,11 @@
     </p>
     <p class="time">{{this.time}} "</p>
   </div>
+  {{#ifequal user.rol value="subscriber"}}
+  <form action="/recipes/add-favorite/{{this._id}}
+      " method="POST">
+    <button type="submit"><i class="fas fa-heart"></i></button>
+  </form>
+  </form>
+  {{/ifequal}}
 </div>
