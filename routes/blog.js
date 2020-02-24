@@ -10,8 +10,6 @@ router.get("/", async (req, res, next) => {
       .limit(10)
       .sort("createdAt")
       .populate("ingredients");
-
-    console.log("recipes", recipe, recipe.length);
     res.render("blog", { recipe });
   } catch (error) {
     next(error);

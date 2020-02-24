@@ -15,20 +15,20 @@
     {{#unless user}}
     <div class="menu-active not-logged">
       <ul>
-        <li><a href="/about">Quiénes somos {{user.rol}}</a></li>
+        <li><a href="/about">About Us {{user.rol}}</a></li>
         <li><a href="/blog">Blog</a></li>
-        <li><a href="/login">Entrar</a></li>
-        <li><a href="/register">Registro</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/register">Register</a></li>
       </ul>
     </div>
     {{/unless}}
     {{#ifequal user.rol value="subscriber"}}
     <div class="menu-active user-logged">
       <ul>
-        <li><a href="/recetas">Recetas</a></li>
-        <li><a href="/favoritas">Favoritas</a></li>
-        <li><a href="/lista-de-la-compra">Lista de la compra</a></li>
-        <li><a href="/profile">Mi cuenta |
+        <li><a href="/recipes">Recipes</a></li>
+        <li><a href="/favorites">Favorites</a></li>
+        <li><a href="/shopping-list">Shopping List</a></li>
+        <li><a href="/profile">My Profile |
             {{#if user}}
             <span class="user-alias">{{user.username}}</span>
             {{/if}}
@@ -41,17 +41,17 @@
     {{#ifequal user.rol value="admin"}}
     <div class="menu-active admin-logged">
       <ul>
-        <li><a href="/recetas">Recetas</a></li>
-        <li><a href="/usuarios">Usuarios</a></li>
-        <li><a href="/añadir-receta">Añadir receta</a></li>
+        <li><a href="/recipes">Recipes</a></li>
+        <li><a href="/users">Users</a></li>
+        <li><a href="/add-recipes">Add Recipes</a></li>
         <li>
-          <a class="active" href="/profile">Mi cuenta |
+          <a class="active" href="/profile">My Profile |
             {{#if user}}
             <span class="user-alias strong">{{user.username}}</span>
             {{/if}}
           </a>
         </li>
-        <li><a href="/logout">Salir</a></li>
+        <li><a href="/logout">Logout</a></li>
       </ul>
     </div>
     {{/ifequal}}

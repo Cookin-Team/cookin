@@ -70,11 +70,6 @@ router.post(
     try {
       const favoritesID = [];
       favoritesID.push(id);
-      console.log("ARRAY FAVORITOS", favoritesID);
-      // await User.update(
-      //   { _id: req.query.user_id },
-      //   { $push: { recipesFavourites: favoritesID } }
-      // );
       res.redirect("/recipes");
     } catch (error) {
       next(error);

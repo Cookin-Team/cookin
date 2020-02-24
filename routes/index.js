@@ -39,7 +39,7 @@ router.post("/edit/:id", isLoggedIn(), async (req, res, next) => {
 });
 
 /* GET Users ADMIN page LIST */
-router.get("/usuarios", isLoggedIn(), async (req, res, next) => {
+router.get("/users", isLoggedIn(), async (req, res, next) => {
   try {
     const usersList = await Users.find();
     const usersTotal = usersList.length;
@@ -51,12 +51,12 @@ router.get("/usuarios", isLoggedIn(), async (req, res, next) => {
 });
 
 //Delete Users ADMIN page LIST
-router.post("/usuarios/delete/:id", async (req, res) => {
+router.post("/users/delete/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const foundObjFromId = await Users.findById(id);
     await Users.findByIdAndRemove(foundObjFromId);
-    res.redirect("/usuarios");
+    res.redirect("/users");
   } catch (err) {
     res.send(`error: ${err}`);
     next();
@@ -64,14 +64,14 @@ router.post("/usuarios/delete/:id", async (req, res) => {
 });
 
 //Editar Users ADMIN page LIST
-router.post("/usuarios/edit/:id", async (req, res) => {
+router.post("/users/edit/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const { rol } = req.body;
     await Users.findByIdAndUpdate(id, {
       rol
     });
-    res.redirect("/usuarios");
+    res.redirect("/users");
   } catch (err) {
     res.send(`error: ${err}`);
     next();

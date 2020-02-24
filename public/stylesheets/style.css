@@ -828,10 +828,6 @@ form {
     .card a:hover img {
       opacity: 0.8; }
 
-.footer .path {
-  line-height: 0;
-  margin-top: 4rem; }
-
 .col-2 {
   display: flex;
   flex-direction: column-reverse; }
@@ -890,13 +886,6 @@ form {
     .col-2 .content {
       padding: 0 80px 0 0;
       width: 40%; } }
-
-
-@media (min-width: 992px) {
-  .footer .wrapper .logo {
-    text-align: left; }
-  .footer .wrapper .info {
-    flex-flow: row nowrap; } }
 
 .recipes-wrapper {
   display: flex;
@@ -1048,11 +1037,5 @@ h2 span {
         margin: 0; }
         .user-list li .actions form.user-upload {
           margin-bottom: 10px; } }
-
-.recipes-wrapper {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: stretch; }
 
 /*# sourceMappingURL=style.css.map */

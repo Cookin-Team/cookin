@@ -15,11 +15,11 @@
         <p>VISITS: <span>{{this.visits}}</span></p>
       </div>
       <div class="actions">
-        <form action="/usuarios/delete/{{this._id}}
+        <form action="/users/delete/{{this._id}}
       " method="POST" class="user-delete">
           <button type="submit"><i class="fa fa-trash-alt"></i></button>
         </form>
-        <form action="/usuarios/edit/{{this._id}}" method="POST" class="user-upload">
+        <form action="/users/edit/{{this._id}}" method="POST" class="user-upload">
           <select name="rol">
             <option selected disabled hidden>{{this.rol}}
               </i>
