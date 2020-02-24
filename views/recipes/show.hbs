@@ -1,0 +1,57 @@
+<div class="container-fluid">
+  <div class="container">
+    <h1>{{recipe.title}}</h1>
+    <div class="wrapper">
+      <div class="left">
+        <div class="image"><img src="{{recipe.imageSrc}}" alt="{{recipe.title}}"></div>
+        <div class="description">
+          <p>{{recipe.description}}</p>
+        </div>
+        <div><a href="/recipes">VIEW ALL RECIPES</a></div>
+      </div>
+      <div class="right">
+        <div class="details">
+          <p class="type">
+            {{#each recipe.types}}
+            <span class="tag">{{this}}</span>
+            {{/each}}
+          </p>
+          <p class="time">{{recipe.time}} "</p>
+          <p class="servings">{{recipe.servings}}
+            {{#checkplural this.servings 1}}
+            servings
+            {{else}}
+            serving
+            {{/checkplural}}
+          </p>
+          <div class="ingredients">
+            <p>Ingredients:</p>
+            <ul>
+              {{#each recipe.ingredients}}
+              <li class="ingredient">{{this.name}}</li>
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+        <div class="actions">
+          <!--{{#ifequal user.rol value="subscriber"}}-->
+
+          <!--{{/ifequal}}-->
+          {{#ifequal user.rol value="admin"}}
+          <form action="/recipes/addfavorite/{{recipe.id}}" method="POST">
+            <button type="submit">ADD TO FAVORITES</button>
+          </form>
+          <form action="/recipes/shoppinglist/{{recipe.id}}" method="POST">
+            <button type="submit">ADD TO SHOPPING LIST</button>
+          </form>
+          <div><a href="/recipes/new">ADD NEW RECIPE</a></div>
+          <div><a href="/recipes/edit/{{recipe.id}}">EDIT RECIPE</a></div>
+          <form action="/recipes/delete/{{recipe.id}}" method="POST">
+            <button type="submit">DELETE</button>
+          </form>
+          {{/ifequal}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
