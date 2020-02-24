@@ -17,7 +17,7 @@ router.get("/recipes", async (req, res, next) => {
 });
 
 /* GET new recipe */
-router.get("/recipes/new", async (req, res, next) => {
+router.get("/add-recipes", async (req, res, next) => {
   try {
     res.render("recipes/new");
   } catch (error) {
@@ -88,6 +88,43 @@ router.post("/recipes/delete/:id", isLoggedIn(), async (req, res, next) => {
   }
 });
 
+/* POST add new recipe */
+router.post("/recipes/new", isLoggedIn(), async (req, res, next) => {
+  try {
+    const { title, time, servings, description, ingredients } = req.body;
+    const arrIngredients = ingredients.split("|").map(id => id.trim());
+
+    const ids = await Promise.all(
+      arrIngredients
+        .filter(ing => ing)
+        .map(ingredient => {
+          return Ingredient.findOneAndUpdate(
+            { name: ingredient },
+            { name: ingredient },
+            {
+              new: true,
+              upsert: true
+            }
+          );
+        })
+    );
+
+    const dataRecipe = {
+      title: title,
+      time: time,
+      servings: servings,
+      ingredients: ids.map(ingredient => ingredient._id),
+      description: description
+    };
+
+    const newRecipe = new Recipe(dataRecipe);
+    await newRecipe.save();
+    res.redirect("/recipes");
+  } catch (error) {
+    next(error);
+  }
+});
+
 /* POST edit recipe */
 router.post("/recipes/edit/:id", isLoggedIn(), async (req, res, next) => {
   try {
@@ -109,12 +146,13 @@ router.post("/recipes/edit/:id", isLoggedIn(), async (req, res, next) => {
           );
         })
     );
-    const { title, time, servings } = req.body;
+
     const dataRecipe = {
-      title: title,
-      time: time,
-      servings: servings,
-      ingredients: ids.map(ingredient => ingredient._id)
+      title: req.body.title,
+      time: req.body.time,
+      servings: req.body.servings,
+      ingredients: ids.map(ingredient => ingredient._id),
+      description: req.body.description
     };
 
     Recipe.findByIdAndUpdate(id, dataRecipe, { new: true })
