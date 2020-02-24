@@ -722,6 +722,12 @@ form {
     max-width: 45rem;
     margin: 0 auto; }
 
+@media (min-width: 992px) {
+  form .box-input {
+    width: 49%; }
+  .form-small .box-input {
+    width: 100%; } }
+
 .card {
   max-width: 31%;
   margin: 1%;
@@ -743,11 +749,6 @@ form {
       color: #ff7959; }
     .card a:hover img {
       opacity: 0.8; }
-@media (min-width: 992px) {
-  form .box-input {
-    width: 49%; }
-  .form-small .box-input {
-    width: 100%; } }
 
 .footer .path {
   line-height: 0;
@@ -791,16 +792,16 @@ form {
       color: #ffffff;
       font-weight: bold; }
 
-.recipes-wrapper {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: stretch; }
-
 @media (min-width: 992px) {
   .footer .wrapper .logo {
     text-align: left; }
   .footer .wrapper .info {
     flex-flow: row nowrap; } }
+
+.recipes-wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: stretch; }
 
 /*# sourceMappingURL=style.css.map */

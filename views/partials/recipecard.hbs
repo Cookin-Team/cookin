@@ -1,0 +1,23 @@
+<div class="card">
+  <div>
+    <a href="/recipes/{{this.id}}"><img src="{{this.imageSrc}}" alt="Image"></a>
+  </div>
+  <div>
+    <a href="/recipes/{{this.id}}">
+      <h3>{{this.title}}</h3>
+    </a>
+    <p class="type">
+      {{#each this.types}}
+      <span class="tag">{{this}}</span>
+      {{/each}}
+    </p>
+    <p class="servings">{{this.servings}}
+      {{#checkplural this.servings 1}}
+      servings
+      {{else}}
+      serving
+      {{/checkplural}}
+    </p>
+    <p class="time">{{this.time}} "</p>
+  </div>
+</div>

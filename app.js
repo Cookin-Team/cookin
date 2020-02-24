@@ -70,6 +70,12 @@ hbs.registerHelper("ifequal", function(conditional, options) {
     return options.inverse(this);
   }
 });
+hbs.registerHelper("checkplural", function(v1, v2, options) {
+  if (v1 > v2) {
+    return options.fn(this);
+  }
+  return options.inverse(this);
+});
 
 app.use((req, res, next) => {
   res.locals.user = req.user;

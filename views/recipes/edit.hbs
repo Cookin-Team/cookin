@@ -1,0 +1,16 @@
+<div class="container-fluid">
+  <div class="container">
+    <h1>Modifiy: {{recipe.title}}</h1>
+    <form class="boxed" action="/recipes/edit/{{recipe.id}}" method="POST">
+      {{> input type="text" name="title" label="Title" placeholder=recipe.title value=recipe.title}}
+      {{> input type="text" name="time" label="Time" placeholder=recipe.time value=recipe.time}}
+      {{> input type="text" name="servings" label="Servings" placeholder=recipe.servings value=recipe.servings}}
+      <div class="box-input">
+        <label for="ingredients">Ingredients:</label>
+        <textarea id="ingredients" rows="3"
+          name="ingredients">{{#each recipe.ingredients}}{{this.name}}{{#unless @last }} | {{/unless}}{{/each}}</textarea>
+      </div>
+      <button type="submit" class="btn btn-dark">SAVE</button>
+    </form>
+  </div>
+</div>
