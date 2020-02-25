@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="container">
     <h1>Add new recipe:</h1>
-    <form class="boxed" action="/recipes/new" method="POST">
+    <form class="boxed" action="/recipes/new" method="POST" enctype="multipart/form-data">
       {{> input type="text" name="title" label="Title:" placeholder="Pulpo a feira"}}
       {{> input type="text" name="time" label="Duration in minutes:" placeholder="120"}}
       {{> input type="text" name="servings" label="Number of servings:" placeholder="2"}}
@@ -14,7 +14,7 @@
         <textarea id="description" rows="3"
           name="description">Prepare and peel the potatoes, boilt the water...</textarea>
       </div>
-      {{!-- {{> input type="file" name="recipepic" label="Upload a picture:"}} --}}
+      {{> input type="file" name="recipepic" label="Upload a picture:"}}
       <button type="submit" class="btn btn-dark">SAVE</button>
     </form>
   </div>

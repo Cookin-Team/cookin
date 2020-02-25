@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="container">
     <h1>Modifiy: {{recipe.title}}</h1>
-    <form class="boxed" action="/recipes/edit/{{recipe.id}}" method="POST">
+    <form class="boxed" action="/recipes/edit/{{recipe.id}}" method="POST" enctype="multipart/form-data">
       {{> input type="text" name="title" label="Title:" placeholder=recipe.title value=recipe.title}}
       {{> input type="text" name="time" label="Duration in minutes:" placeholder=recipe.time value=recipe.time}}
       {{> input type="text" name="servings" label="Number of servings:" placeholder=recipe.servings value=recipe.servings}}
@@ -14,7 +14,7 @@
         <label for="ingredients">Description:</label>
         <textarea id="description" rows="3" name="description">{{recipe.description}}</textarea>
       </div>
-      {{!-- {{> input type="file" name="recipepic" label="Upload a picture:"}} --}}
+      {{> input type="file" name="recipepic" label="Upload a picture:"}}
       <button type="submit" class="btn btn-dark">SAVE</button>
     </form>
   </div>
