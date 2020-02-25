@@ -42,7 +42,8 @@ p {
   }
 }
 
-a {
+a,
+.btn-special {
   color: $c-medium;
   font-size: 1.4rem;
   line-height: 1.8rem;
@@ -69,7 +70,8 @@ a {
     font-size: 1.5rem;
   }
 
-  a {
+  a,
+  .btn-special {
     font-size: 1.5rem;
   }
 }
@@ -94,7 +96,8 @@ a {
     font-size: 1.6rem;
   }
 
-  a {
+  a,
+  .btn-special {
     font-size: 1.6rem;
   }
 }
