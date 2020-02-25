@@ -455,7 +455,8 @@ p {
   p::selection {
     color: white; }
 
-a {
+a,
+.btn-special {
   color: #3a3f5c;
   font-size: 1.4rem;
   line-height: 1.8rem; }
@@ -471,7 +472,8 @@ a {
     font-size: 2em; }
   p {
     font-size: 1.5rem; }
-  a {
+  a,
+  .btn-special {
     font-size: 1.5rem; } }
 
 @media (min-width: 992px) {
@@ -485,7 +487,8 @@ a {
     font-size: 2.2em; }
   p {
     font-size: 1.6rem; }
-  a {
+  a,
+  .btn-special {
     font-size: 1.6rem; } }
 
 .container-fluid,
@@ -601,15 +604,31 @@ a {
       padding: 0; }
       .menu .menu-wrapper .menu-active ul li {
         list-style-type: none; }
-        .menu .menu-wrapper .menu-active ul li a {
+        .menu .menu-wrapper .menu-active ul li form {
+          background: none;
+          border: none;
+          border-radius: 0;
+          margin: 0;
+          padding: 0;
+          box-shadow: none;
+          font-size: initial;
+          color: inherit; }
+        .menu .menu-wrapper .menu-active ul li a,
+        .menu .menu-wrapper .menu-active ul li .btn-special {
+          font-family: "Montserrat", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+          border: none;
+          background: none;
+          box-shadow: none;
           display: block;
           padding: 1.5rem;
           text-decoration: none;
           box-sizing: border-box;
           border: solid 0.2rem transparent; }
-          .menu .menu-wrapper .menu-active ul li a.active {
+          .menu .menu-wrapper .menu-active ul li a.active,
+          .menu .menu-wrapper .menu-active ul li .btn-special.active {
             border: solid 0.2rem #4dbc4b; }
-          .menu .menu-wrapper .menu-active ul li a:hover {
+          .menu .menu-wrapper .menu-active ul li a:hover,
+          .menu .menu-wrapper .menu-active ul li .btn-special:hover {
             -webkit-transition: all 0.4s ease-in-out;
             -moz-transition: all 0.4s ease-in-out;
             -ms-transition: all 0.4s ease-in-out;

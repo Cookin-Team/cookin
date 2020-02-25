@@ -79,7 +79,22 @@
         padding: 0;
         li {
           list-style-type: none;
-          a {
+          form {
+            background: none;
+            border: none;
+            border-radius: 0;
+            margin: 0;
+            padding: 0;
+            box-shadow: none;
+            font-size: initial;
+            color: inherit;
+          }
+          a,
+          .btn-special {
+            font-family: $secondary-font;
+            border: none;
+            background: none;
+            box-shadow: none;
             display: block;
             padding: 1.5rem;
             text-decoration: none;
