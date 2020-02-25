@@ -15,7 +15,7 @@
     {{#unless user}}
     <div class="menu-active not-logged">
       <ul>
-        <li><a href="/about">About Us {{user.rol}}</a></li>
+        <li><a href="/about">About Us</a></li>
         <li><a href="/blog">Blog</a></li>
         <li><a href="/login">Login</a></li>
         <li><a href="/register">Register</a></li>
@@ -25,9 +25,15 @@
     {{#ifequal user.rol value="subscriber"}}
     <div class="menu-active user-logged">
       <ul>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/blog">Blog</a></li>
         <li><a href="/recipes">Recipes</a></li>
         <li><a href="/favorites">Favorites</a></li>
-        <li><a href="/shopping-list">Shopping List</a></li>
+        <li>
+          <form action="/shopping-list/{{user.id}}">
+            <button type="submit">Shopping List</button>
+          </form>
+        </li>
         <li><a href="/profile">My Profile |
             {{#if user}}
             <span class="user-alias">{{user.username}}</span>
@@ -41,7 +47,15 @@
     {{#ifequal user.rol value="admin"}}
     <div class="menu-active admin-logged">
       <ul>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/blog">Blog</a></li>
         <li><a href="/recipes">Recipes</a></li>
+        <li><a href="/favorites">Favorites</a></li>
+        <li>
+          <form action="/shopping-list/{{user.id}}">
+            <button type="submit">Shopping List</button>
+          </form>
+        </li>
         <li><a href="/users">Users</a></li>
         <li><a href="/add-recipes">Add Recipes</a></li>
         <li>

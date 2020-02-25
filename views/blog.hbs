@@ -3,6 +3,7 @@
     <h1>RECIPES BLOG</h1>
     {{#each recipe}}
     <h2>{{this.title}}</h2>
+    <p>{{this.createdAt}}</p>
     <div class="wrapper">
       <div class="left">
         <div class="image"><img src="{{this.imageSrc}}" alt="{{this.title}}"></div>
