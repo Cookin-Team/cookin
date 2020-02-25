@@ -8,7 +8,7 @@ router.get("/", async (req, res, next) => {
   try {
     const recipe = await Recipe.find()
       .limit(10)
-      .sort("createdAt")
+      .sort({ createdAt: -1 })
       .populate("ingredients");
     res.render("blog", { recipe });
   } catch (error) {

@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Your Shooping List {{user.lastname}}</h1>
+  <h2>Total Ingredients: <span>{{ingredientsTotal}}</span></h2>
+
+  <ul id="ingredient-list" class="ingredient-list">
+    {{#each user.ingredientsList}}
+    <li>
+      <p class="info">{{this.name}}</p>
+      <form action="/ingredientlist/delete/{{this.id}}" method="POST" class="user-delete">
+        <button type="submit"><i class="fa fa-trash-alt"></i></button>
+      </form>
+    </li>
+
+    {{/each}}
+  </ul>
+
+
+  <a href="#" title="print">Print</a>
+</div>
