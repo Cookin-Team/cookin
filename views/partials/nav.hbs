@@ -28,10 +28,12 @@
         <li><a href="/about">About Us</a></li>
         <li><a href="/blog">Blog</a></li>
         <li><a href="/recipes">Recipes</a></li>
-        <li><a href="/favorites">Favorites</a></li>
+        <li><a href="/favorites" class="icon"><img src="/images/heart.svg" alt="favorites" /><span>Favorites</span></a>
+        </li>
         <li>
           <form action="/shopping-list/{{user.id}}">
-            <button class="btn-special" type="submit">Shopping List</button>
+            <button class="btn-special icon" type="submit"><img src="/images/basket.svg" alt="list" /><span>Shopping
+                List</button>
           </form>
         </li>
         <li><a href="/profile">My Profile |
@@ -50,14 +52,17 @@
         <li><a href="/about">About Us</a></li>
         <li><a href="/blog">Blog</a></li>
         <li><a href="/recipes">Recipes</a></li>
-        <li><a href="/favorites">Favorites</a></li>
+        <li><a href="/favorites" class="icon"><img src="/images/heart.svg" alt="favorites" /><span>Favorites</span></a>
+        </li>
         <li>
           <form action="/shopping-list/{{user.id}}">
-            <button class="btn-special" type="submit">Shopping List</button>
+            <button class="btn-special icon" type="submit"><img src="/images/basket.svg" alt="list" /><span>Shopping
+                List</span></button>
           </form>
         </li>
-        <li><a href="/users">Users</a></li>
-        <li><a href="/add-recipes">Add Recipes</a></li>
+        <li><a href="/users" class="icon"><img src="/images/users.svg" alt="users" /><span>Users<span></a></li>
+        <li><a href="/add-recipes" class="icon"><img src="/images/create.svg" alt="add recipe" /><span>Add
+              recipe<span></a></li>
         <li>
           <a class="active" href="/profile">My Profile |
             {{#if user}}

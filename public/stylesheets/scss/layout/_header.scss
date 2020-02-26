@@ -79,6 +79,7 @@
         padding: 0;
         li {
           list-style-type: none;
+          line-height: 2.5rem;
           form {
             background: none;
             border: none;
@@ -100,12 +101,45 @@
             text-decoration: none;
             box-sizing: border-box;
             border: solid 0.2rem transparent;
+            outline: none;
             &.active {
               border: solid 0.2rem $c-primary;
             }
             &:hover {
               @include transition(all, 0.4s, ease-in-out);
               border: solid 0.2rem $c-primary;
+            }
+            &.icon {
+              display: flex;
+              flex-flow: row nowrap;
+              justify-content: flex-start;
+              align-items: center;
+              img {
+                height: 2.5rem;
+                margin-right: 1rem;
+                background-color: $c-primary;
+                border-radius: 5rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  @include md {
+    .menu-wrapper {
+      .menu-active {
+        ul li {
+          a,
+          .btn-special {
+            &.icon {
+              &:hover {
+                border-color: transparent;
+                img {
+                  @include transition(all, 0.4s, ease-in-out);
+                  background-color: $c-accent;
+                }
+              }
             }
           }
         }
@@ -140,6 +174,31 @@
         flex-flow: row nowrap;
         justify-content: space-between;
         align-items: center;
+        li {
+          a,
+          .btn-special {
+            &.icon {
+              display: flex;
+              flex-flow: row nowrap;
+              justify-content: center;
+              align-items: center;
+              img {
+                height: 4rem;
+                margin: 0;
+              }
+              span {
+                display: none;
+              }
+              &:hover {
+                border-color: transparent;
+                img {
+                  @include transition(all, 0.4s, ease-in-out);
+                  background-color: $c-accent;
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
