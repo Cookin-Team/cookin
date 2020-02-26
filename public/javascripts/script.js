@@ -1,10 +1,11 @@
 const hamburger = document.getElementById("menu-mobile");
 const menuWrapper = document.getElementById("menu-mobile-wrapper");
+const btnPrint = document.getElementById("btn-print");
 
 document.addEventListener(
   "DOMContentLoaded",
   () => {
-    //Btn Start First Screen
+    //Btn Nav Resp
     hamburger.onclick = function(e) {
       if (this.classList.contains("active")) {
         this.classList.remove("active");
@@ -14,6 +15,14 @@ document.addEventListener(
         menuWrapper.classList.add("active");
       }
     };
+
+    btnPrint.addEventListener("click", function() {
+      var printContents = document.getElementById("print-list").innerHTML;
+      var originalContents = document.body.innerHTML;
+      document.body.innerHTML = printContents;
+      window.print();
+      document.body.innerHTML = originalContents;
+    });
   },
   false
 );

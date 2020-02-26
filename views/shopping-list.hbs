@@ -1,8 +1,8 @@
-<div class="container">
+<div id="print-list" class="container">
   <h1>Your Shooping List {{user.lastname}}</h1>
   <h2>Total Ingredients: <span>{{ingredientsTotal}}</span></h2>
 
-  <ul id="ingredient-list" class="ingredient-list">
+  <ul class="ingredient-list">
     {{#each user.ingredientsList}}
     <li>
       <p class="info">{{this.name}}</p>
@@ -14,6 +14,5 @@
     {{/each}}
   </ul>
 
-
-  <a href="#" title="print">Print</a>
+  <button id="btn-print" class="btn">Print</button>
 </div>
