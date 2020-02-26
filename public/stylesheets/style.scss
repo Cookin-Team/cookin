@@ -17,7 +17,8 @@
   "scss/components/card", "scss/components/col";
 
 // 6. Page-specific styles
-@import "scss/pages/home", "scss/pages/recipes", "scss/pages/_profile-admin";
+@import "scss/pages/home", "scss/pages/recipes", "scss/pages/_profile-admin",
+  "scss/pages/_shopping-list";
 
 // 7. Themes
 @import "scss/themes/default";

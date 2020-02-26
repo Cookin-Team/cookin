@@ -1,0 +1,94 @@
+.box-ingredients {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 95%;
+  h2 {
+    margin-top: 0;
+  }
+  .ingredient-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 15px 0 15px;
+
+    li {
+      align-items: center;
+      border: 1px solid $c-grey-2;
+      border-radius: 3px;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      padding: 12px;
+      width: 100%;
+
+      &:nth-child(even) {
+        background-color: $c-grey-3;
+      }
+
+      p {
+        margin: 0;
+        text-transform: capitalize;
+        &:before {
+          content: "-";
+          display: inline-block;
+          margin-right: 10px;
+        }
+      }
+      form {
+        background: none;
+        border: 0;
+        box-shadow: none;
+        margin: 0;
+        padding: 0;
+        button {
+          background: none;
+          border: none;
+          font-size: 2em;
+          i {
+            color: #ff7959;
+          }
+        }
+      }
+    }
+  }
+  > button {
+    max-width: 250px;
+    margin: 2rem auto 0;
+    width: 100%;
+  }
+}
+
+@include sm {
+  .box-ingredients {
+    .ingredient-list {
+      justify-content: space-between;
+      li {
+        width: 48.5%;
+      }
+    }
+    > button {
+      margin: 2rem 0 0;
+    }
+  }
+}
+
+@include lg {
+  .box-ingredients {
+    .ingredient-list {
+      flex-direction: wrap;
+      justify-content: flex-start;
+      li {
+        width: 32%;
+        margin-right: 2%;
+        &:nth-child(3n) {
+          margin-right: 0;
+        }
+      }
+    }
+    > button {
+      margin: 2rem 0 0;
+    }
+  }
+}

@@ -1057,4 +1057,72 @@ h2 span {
         .user-list li .actions form.user-upload {
           margin-bottom: 10px; } }
 
+.box-ingredients {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 95%; }
+  .box-ingredients h2 {
+    margin-top: 0; }
+  .box-ingredients .ingredient-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 15px 0 15px; }
+    .box-ingredients .ingredient-list li {
+      align-items: center;
+      border: 1px solid #c4c4c4;
+      border-radius: 3px;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      padding: 12px;
+      width: 100%; }
+      .box-ingredients .ingredient-list li:nth-child(even) {
+        background-color: #f1eeee; }
+      .box-ingredients .ingredient-list li p {
+        margin: 0;
+        text-transform: capitalize; }
+        .box-ingredients .ingredient-list li p:before {
+          content: "-";
+          display: inline-block;
+          margin-right: 10px; }
+      .box-ingredients .ingredient-list li form {
+        background: none;
+        border: 0;
+        box-shadow: none;
+        margin: 0;
+        padding: 0; }
+        .box-ingredients .ingredient-list li form button {
+          background: none;
+          border: none;
+          font-size: 2em; }
+          .box-ingredients .ingredient-list li form button i {
+            color: #ff7959; }
+  .box-ingredients > button {
+    max-width: 250px;
+    margin: 2rem auto 0;
+    width: 100%; }
+
+@media (min-width: 576px) {
+  .box-ingredients .ingredient-list {
+    justify-content: space-between; }
+    .box-ingredients .ingredient-list li {
+      width: 48.5%; }
+  .box-ingredients > button {
+    margin: 2rem 0 0; } }
+
+@media (min-width: 992px) {
+  .box-ingredients .ingredient-list {
+    flex-direction: wrap;
+    justify-content: flex-start; }
+    .box-ingredients .ingredient-list li {
+      width: 32%;
+      margin-right: 2%; }
+      .box-ingredients .ingredient-list li:nth-child(3n) {
+        margin-right: 0; }
+  .box-ingredients > button {
+    margin: 2rem 0 0; } }
+
 /*# sourceMappingURL=style.css.map */
