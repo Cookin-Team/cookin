@@ -13,7 +13,10 @@ router.get("/", isLoggedOut(), (req, res, next) => {
 router.post(
   "/",
   isLoggedOut(),
-  passport.authenticate("local", { successRedirect: "/", failureRedirect: "/" })
+  passport.authenticate("local", {
+    successRedirect: "/about",
+    failureRedirect: "/login"
+  })
 );
 
 module.exports = router;
