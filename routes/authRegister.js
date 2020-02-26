@@ -34,7 +34,7 @@ router.post("/", isLoggedOut(), async (req, res, next) => {
     req.login(newUser, () => {
       req.user.visits += 1;
       req.user.save();
-      return res.redirect("/");
+      return res.redirect("/about");
     });
   } else {
     res.render("auth/register");
