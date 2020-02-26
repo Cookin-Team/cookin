@@ -856,6 +856,15 @@ form {
   .col-2 .content .btn {
     display: inline-block;
     text-align: center; }
+  .col-2 form {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none; }
+    .col-2 form .btn {
+      text-transform: uppercase;
+      text-decoration: underline; }
 
 .col-3 {
   display: flex;
@@ -872,7 +881,8 @@ form {
 @media (min-width: 768px) {
   .col-2 {
     flex-direction: row;
-    justify-content: flex-end; }
+    justify-content: flex-end;
+    margin-bottom: 30px; }
     .col-2.inverse {
       flex-direction: row-reverse; }
       .col-2.inverse .content {

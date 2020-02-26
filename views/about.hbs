@@ -1,3 +1,4 @@
+{{#unless user}}
 <div class="col-2 inverse">
   <div class="content">
     <h1 class="title">Together, to be your inspiration</h1>
@@ -5,6 +6,56 @@
     <a href="/register" class="btn">REGISTER</a>
   </div>
   <div class="box-img">
-    <img src="/images/about.png" alt="" title="">
+    <img src="/images/about.jpg" alt="REGISTER" title="REGISTER">
   </div>
 </div>
+
+{{/unless}}
+<div class="col-2">
+  <div class="content">
+    <h1 class="title">New recipes in our Blog</h1>
+    <p>Every week we include new recipes to always be up to date with new dishes so you always have something newto
+      prepare.</p>
+    <a href="/blog" class="btn">BLOG</a>
+  </div>
+  <div class="box-img">
+    <img src="/images/about-blog.jpg" alt="Blog" title="Blog">
+  </div>
+</div>
+{{#if user}}
+<div class="col-2 inverse">
+  <div class="content">
+    <h1 class="title">All the recipes you can imagine</h1>
+    <p>All the recipes you want can be found on our recipe page.</p>
+    <a href="/recipes" class="btn">RECIPES</a>
+  </div>
+  <div class="box-img">
+    <img src="/images/about-recipes.jpg" alt="Recipes" title="Recipes">
+  </div>
+</div>
+
+<div class="col-2">
+  <div class="content">
+    <h1 class="title">Add all the recipes you want to your favorites</h1>
+    <p>All the recipes you want you can love you can include in this list of your favorites</p>
+    <a href="/favorites" class="btn">FAVORITES</a>
+  </div>
+  <div class="box-img">
+    <img src="/images/about-love.jpg" alt="Favorites" title="Favorites">
+  </div>
+</div>
+
+<div class="col-2 inverse">
+  <div class="content">
+    <h1 class="title">Your personalized shopping list</h1>
+    <p>Include from each recipe the ingredients you want, to create a custom shopping list. You can also print it to
+      make it more comfortable for you.</p>
+    <form action="/shopping-list/{{user.id}}">
+      <button class="btn-special btn" type="submit">Shopping List</button>
+    </form>
+  </div>
+  <div class="box-img">
+    <img src="/images/about.png" alt="Shopping List" title="Shopping List">
+  </div>
+</div>
+{{/if}}

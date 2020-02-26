@@ -13,6 +13,17 @@
       text-align: center;
     }
   }
+  form {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+    .btn {
+      text-transform: uppercase;
+      text-decoration: underline;
+    }
+  }
 }
 .col-3 {
   display: flex;
@@ -34,6 +45,7 @@
   .col-2 {
     flex-direction: row;
     justify-content: flex-end;
+    margin-bottom: 30px;
     &.inverse {
       flex-direction: row-reverse;
       .content {
