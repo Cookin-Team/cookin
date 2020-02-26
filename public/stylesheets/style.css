@@ -603,7 +603,8 @@ a,
       align-items: space-around;
       padding: 0; }
       .menu .menu-wrapper .menu-active ul li {
-        list-style-type: none; }
+        list-style-type: none;
+        line-height: 2.5rem; }
         .menu .menu-wrapper .menu-active ul li form {
           background: none;
           border: none;
@@ -623,7 +624,8 @@ a,
           padding: 1.5rem;
           text-decoration: none;
           box-sizing: border-box;
-          border: solid 0.2rem transparent; }
+          border: solid 0.2rem transparent;
+          outline: none; }
           .menu .menu-wrapper .menu-active ul li a.active,
           .menu .menu-wrapper .menu-active ul li .btn-special.active {
             border: solid 0.2rem #4dbc4b; }
@@ -635,6 +637,30 @@ a,
             -o-transition: all 0.4s ease-in-out;
             transition: all 0.4s ease-in-out;
             border: solid 0.2rem #4dbc4b; }
+          .menu .menu-wrapper .menu-active ul li a.icon,
+          .menu .menu-wrapper .menu-active ul li .btn-special.icon {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: flex-start;
+            align-items: center; }
+            .menu .menu-wrapper .menu-active ul li a.icon img,
+            .menu .menu-wrapper .menu-active ul li .btn-special.icon img {
+              height: 2.5rem;
+              margin-right: 1rem;
+              background-color: #4dbc4b;
+              border-radius: 5rem; }
+  @media (min-width: 768px) {
+    .menu .menu-wrapper .menu-active ul li a.icon:hover,
+    .menu .menu-wrapper .menu-active ul li .btn-special.icon:hover {
+      border-color: transparent; }
+      .menu .menu-wrapper .menu-active ul li a.icon:hover img,
+      .menu .menu-wrapper .menu-active ul li .btn-special.icon:hover img {
+        -webkit-transition: all 0.4s ease-in-out;
+        -moz-transition: all 0.4s ease-in-out;
+        -ms-transition: all 0.4s ease-in-out;
+        -o-transition: all 0.4s ease-in-out;
+        transition: all 0.4s ease-in-out;
+        background-color: #ff7959; } }
   @media (min-width: 992px) {
     .menu {
       flex-flow: row nowrap;
@@ -663,7 +689,31 @@ a,
         .menu .menu-wrapper .menu-active ul {
           flex-flow: row nowrap;
           justify-content: space-between;
-          align-items: center; } }
+          align-items: center; }
+          .menu .menu-wrapper .menu-active ul li a.icon,
+          .menu .menu-wrapper .menu-active ul li .btn-special.icon {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            align-items: center; }
+            .menu .menu-wrapper .menu-active ul li a.icon img,
+            .menu .menu-wrapper .menu-active ul li .btn-special.icon img {
+              height: 4rem;
+              margin: 0; }
+            .menu .menu-wrapper .menu-active ul li a.icon span,
+            .menu .menu-wrapper .menu-active ul li .btn-special.icon span {
+              display: none; }
+            .menu .menu-wrapper .menu-active ul li a.icon:hover,
+            .menu .menu-wrapper .menu-active ul li .btn-special.icon:hover {
+              border-color: transparent; }
+              .menu .menu-wrapper .menu-active ul li a.icon:hover img,
+              .menu .menu-wrapper .menu-active ul li .btn-special.icon:hover img {
+                -webkit-transition: all 0.4s ease-in-out;
+                -moz-transition: all 0.4s ease-in-out;
+                -ms-transition: all 0.4s ease-in-out;
+                -o-transition: all 0.4s ease-in-out;
+                transition: all 0.4s ease-in-out;
+                background-color: #ff7959; } }
   @media (min-width: 1200px) {
     .menu #menu-mobile {
       display: none; }
@@ -730,7 +780,8 @@ a,
   border-radius: 5rem;
   min-width: 20rem;
   outline: none;
-  background-size: 300% 100%; }
+  background-size: 300% 100%;
+  text-decoration: none; }
   .btn:hover {
     cursor: pointer;
     -webkit-transition: all 0.4s ease-in-out;
