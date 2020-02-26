@@ -1,0 +1,31 @@
+iframe,
+.game {
+  display: none;
+}
+
+.img-not-found {
+  border-radius: 5px;
+  border: 2px solid $c-primary;
+  display: block;
+  margin: 40px auto 0;
+  max-width: 600px;
+  width: 95%;
+}
+
+@include lg {
+  .game {
+    display: inline;
+  }
+  .img-not-found {
+    display: none;
+  }
+  iframe {
+    border: 5px solid $c-primary;
+    border-radius: 5px;
+    display: block;
+    margin: 20px auto 0;
+    max-width: 1200px;
+    min-height: 650px;
+    width: 100%;
+  }
+}

@@ -1125,4 +1125,30 @@ h2 span {
   .box-ingredients > button {
     margin: 2rem 0 0; } }
 
+iframe,
+.game {
+  display: none; }
+
+.img-not-found {
+  border-radius: 5px;
+  border: 2px solid #4dbc4b;
+  display: block;
+  margin: 40px auto 0;
+  max-width: 600px;
+  width: 95%; }
+
+@media (min-width: 992px) {
+  .game {
+    display: inline; }
+  .img-not-found {
+    display: none; }
+  iframe {
+    border: 5px solid #4dbc4b;
+    border-radius: 5px;
+    display: block;
+    margin: 20px auto 0;
+    max-width: 1200px;
+    min-height: 650px;
+    width: 100%; } }
+
 /*# sourceMappingURL=style.css.map */
