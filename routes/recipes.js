@@ -1,5 +1,6 @@
 const express = require("express");
 const Recipe = require("../models/Recipe");
+const User = require("../models/User");
 const Ingredient = require("../models/Ingredient");
 const uploadCloud = require("../config/cloudinary.js");
 const router = express.Router();
@@ -61,15 +62,38 @@ router.get("/recipes/:id", async (req, res, next) => {
   }
 });
 
-/* GET favorite recipe */
+// /* POST favorites page */
+// router.post("/recipes/add-favorite/:id", async (req, res, next) => {
+//   try {
+//     const { id } = req.params;
+//     const favorite = await Recipe.findById(id);
+
+//     console.log("user--->", favorite);
+//     // console.log("favorites", favorites);
+//     // res.render("recipes/favorites", { favorites });
+//     res.render("recipes/favorites");
+//   } catch (error) {
+//     next(error);
+//   }
+// });
+
+/* POST favorite recipe */
 router.post(
-  "/recipes/addfavorite/:id",
+  "/recipes/add-favorite/:id",
   isLoggedIn(null, true),
   async (req, res, next) => {
-    const { id } = req.params;
     try {
-      const favoritesID = [];
-      favoritesID.push(id);
+      const { id } = req.params;
+      const userActiveId = req.user.id;
+      const recipeFavorite = await Recipe.findById(id);
+      //const userActive = await User.findById(userActiveId);
+
+      console.log("---- >>> RECIPE", recipeFavorite);
+      //console.log("---- >>> USER", userActive);
+      await User.findByIdAndUpdate(userActiveId, {
+        $addToSet: { recipesFavourites: recipeFavorite }
+      });
+
       res.redirect("/recipes");
     } catch (error) {
       next(error);
