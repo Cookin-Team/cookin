@@ -73,6 +73,56 @@ form {
     margin: 0 auto;
   }
 }
+
+.box-input {
+  position: relative;
+  .button_strength {
+    font-size: 20px;
+    position: absolute;
+    right: 10px;
+    top: 47%;
+    i {
+      color: $c-medium;
+    }
+  }
+  .strength_meter {
+    position: absolute;
+    width: 99.7%;
+    top: 74px;
+    left: 1px;
+    div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 100%;
+      text-align: center;
+      color: $c-medium;
+      font-weight: bold;
+      line-height: 23px;
+      p {
+        display: none;
+      }
+    }
+  }
+  .veryweak {
+    background-color: $c-accent;
+    border-color: $c-accent !important;
+  }
+  .weak {
+    background-color: #ffb78c;
+    border-color: #ff853c !important;
+  }
+  .medium {
+    background-color: #ffec8b;
+    border-color: #fc0 !important;
+  }
+  .strong {
+    background-color: $c-primary;
+    border-color: $c-primary !important;
+  }
+}
+
 @include lg {
   form {
     .box-input {

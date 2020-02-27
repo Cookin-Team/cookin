@@ -1,6 +1,7 @@
 const hamburger = document.getElementById("menu-mobile");
 const menuWrapper = document.getElementById("menu-mobile-wrapper");
 const btnPrint = document.getElementById("btn-print");
+const myPassword = $("#myPassword");
 
 document.addEventListener(
   "DOMContentLoaded",
@@ -16,6 +17,7 @@ document.addEventListener(
       }
     };
 
+    //Btn Print list
     if (btnPrint) {
       btnPrint.addEventListener("click", function() {
         var printContents = document.getElementById("print-list").innerHTML;
@@ -23,6 +25,17 @@ document.addEventListener(
         document.body.innerHTML = printContents;
         window.print();
         document.body.innerHTML = originalContents;
+      });
+    }
+
+    //Btn Password
+    if (myPassword) {
+      myPassword.strength({
+        strengthClass: "strength",
+        strengthMeterClass: "strength_meter",
+        strengthButtonClass: "button_strength",
+        strengthButtonText: `<i class="fas fa-eye"></i>`,
+        strengthButtonTextToggle: `<i class="fas fa-eye-slash"></i>`
       });
     }
   },

@@ -939,6 +939,45 @@ form {
     max-width: 45rem;
     margin: 0 auto; }
 
+.box-input {
+  position: relative; }
+  .box-input .button_strength {
+    font-size: 20px;
+    position: absolute;
+    right: 10px;
+    top: 47%; }
+    .box-input .button_strength i {
+      color: #3a3f5c; }
+  .box-input .strength_meter {
+    position: absolute;
+    width: 99.7%;
+    top: 74px;
+    left: 1px; }
+    .box-input .strength_meter div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 100%;
+      text-align: center;
+      color: #3a3f5c;
+      font-weight: bold;
+      line-height: 23px; }
+      .box-input .strength_meter div p {
+        display: none; }
+  .box-input .veryweak {
+    background-color: #ff7959;
+    border-color: #ff7959 !important; }
+  .box-input .weak {
+    background-color: #ffb78c;
+    border-color: #ff853c !important; }
+  .box-input .medium {
+    background-color: #ffec8b;
+    border-color: #fc0 !important; }
+  .box-input .strong {
+    background-color: #4dbc4b;
+    border-color: #4dbc4b !important; }
+
 @media (min-width: 992px) {
   form .box-input {
     width: 49%; }
