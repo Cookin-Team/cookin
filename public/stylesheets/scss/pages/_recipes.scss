@@ -3,4 +3,46 @@
   flex-flow: row wrap;
   justify-content: space-between;
   align-items: stretch;
+  .card {
+    max-width: 100%;
+  }
+}
+.add-recipe {
+  width: 98%;
+  .ingredients,
+  .description {
+    order: 1;
+    textarea {
+      min-width: 100%;
+      max-width: 100%;
+      min-height: 60px;
+    }
+  }
+  button {
+    order: 2;
+  }
+  .box-input:nth-child(6) input {
+    border: none;
+    padding: 0;
+    width: 100%;
+    margin-bottom: 5px;
+  }
+}
+
+@include sm {
+  .recipes-wrapper .card {
+    max-width: 48%;
+  }
+}
+@include md {
+  .add-recipe {
+    width: 100%;
+    .ingredients,
+    .description {
+      width: 100%;
+    }
+  }
+  .recipes-wrapper .card {
+    max-width: 31%;
+  }
 }
