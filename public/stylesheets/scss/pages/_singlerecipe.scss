@@ -1,0 +1,126 @@
+.single-recipe {
+  .container {
+    border-top: solid 1px $c-grey-2;
+    padding: 1.5rem;
+    &:first-child {
+      border-top: 0px;
+    }
+    .wrapper {
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-content: space-between;
+      .left,
+      .right {
+        width: 100%;
+        .image img {
+          margin-bottom: 3rem;
+          width: 100%;
+        }
+        .details,
+        .blog-details {
+          .fa {
+            min-width: 2.5rem;
+          }
+          .type,
+          .time,
+          .servings,
+          .ingredients,
+          .description,
+          .date,
+          .author {
+            padding-top: 2rem;
+            > p {
+              font-weight: bold;
+              font-size: 1.8rem;
+            }
+          }
+          .type {
+            .tag {
+              font-size: 1.5rem;
+              color: $c-light;
+              padding: 0.4rem 0.8rem;
+              border-radius: 0.3rem;
+              background-color: $c-accent;
+              margin-right: 0.6rem;
+            }
+          }
+          .ingredients {
+            li {
+              font-size: 1.6rem;
+              text-transform: capitalize;
+              margin-bottom: 0.5rem;
+            }
+          }
+          .description {
+            span {
+              display: block;
+              padding: 1.5rem 2rem;
+              font-weight: normal;
+              font-size: 1.6rem;
+              color: $c-medium;
+              line-height: 2.4rem;
+              text-align: justify;
+              text-justify: inter-word;
+            }
+          }
+        }
+        .blog-details {
+          margin-top: 6rem;
+          padding: 2rem;
+          border-radius: 0.5rem;
+          border: solid 1px $c-grey-2;
+          background-color: $c-grey-1;
+          i {
+            margin-right: 1rem;
+          }
+          span {
+            font-weight: normal;
+          }
+          .date,
+          .author {
+            padding: 2rem 0;
+          }
+        }
+      }
+      .right {
+        width: 100%;
+
+        .actions {
+          .crud-actions {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: flex-start;
+            align-items: center;
+            > form {
+              padding: 0;
+              box-shadow: none;
+              background: transparent;
+            }
+          }
+          .flow-actions {
+            display: block;
+            margin: 4rem 0;
+          }
+        }
+      }
+    }
+  }
+  @include lg {
+    .container {
+      padding: 1.5rem;
+      .wrapper {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-between;
+        align-content: flex-start;
+        .left {
+          width: 68%;
+        }
+        .right {
+          width: 30%;
+        }
+      }
+    }
+  }
+}

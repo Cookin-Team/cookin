@@ -1,42 +1,65 @@
-<div class="container-fluid">
+<div class="container-fluid single-recipe">
   <div class="container">
-    <h1>RECIPES BLOG</h1>
-    {{#each recipe}}
-    <h2>{{this.title}}</h2>
-    <p>{{this.createdAt}}</p>
+    <h1>Blog</h1>
+  </div>
+  {{#each recipe}}
+  <div class="container">
     <div class="wrapper">
       <div class="left">
-        <div class="image"><img src="{{this.imageSrc}}" alt="{{this.title}}"></div>
-        <div class="description">
-          <p>{{this.description}}</p>
+        <h2>{{this.title}}</h2>
+        <div class="image"><img src="{{this.imageSrc}}" alt="{{this.imgName}}">
         </div>
-      </div>
-      <div class="right">
         <div class="details">
-          <p class="type">
-            {{#each this.types}}
-            <span class="tag">{{this}}</span>
-            {{/each}}
-          </p>
-          <p class="time">{{this.time}} "</p>
-          <p class="servings">{{this.servings}}
-            {{#checkplural this.servings 1}}
-            servings
-            {{else}}
-            serving
-            {{/checkplural}}
-          </p>
+          <div class="type">
+            <p>
+              {{#each this.types}}
+              <span class="tag">{{this}}</span>
+              {{/each}}
+            </p>
+          </div>
+          <div class="time">
+            <p><i class="fa fa-clock-o" aria-hidden="true"></i> {{this.time}} "</p>
+          </div>
+          <div class="servings">
+            <p><i class="fa fa-cutlery" aria-hidden="true"></i>
+              {{#checkplural this.servings 1}}
+              Servings:
+              {{else}}
+              Serving:
+              {{/checkplural}}
+              {{this.servings}}
+            </p>
+          </div>
           <div class="ingredients">
-            <p>Ingredients:</p>
+            <p><i class="fa fa-shopping-basket" aria-hidden="true"></i> Ingredients:</p>
             <ul>
               {{#each this.ingredients}}
               <li class="ingredient">{{this.name}}</li>
               {{/each}}
             </ul>
           </div>
+          <div class="description">
+            <p><i class="fa fa-book" aria-hidden="true"></i> Instructions:</p>
+            <p><span>{{this.description}}</span></p>
+          </div>
         </div>
       </div>
+      <div class="right">
+        <div class="details blog-details">
+          <div class="date">
+            <p>
+              <i class="fas fa-calendar-alt"></i>Posted at: <span>{{this.updatedAt}}</span>
+            </p>
+          </div>
+          <div class="author">
+            <p>
+              <i class="fas fa-user-edit"></i> By: <span>Admin</span>
+            </p>
+          </div>
+        </div>
+
+      </div>
     </div>
-    {{/each}}
   </div>
+  {{/each}}
 </div>

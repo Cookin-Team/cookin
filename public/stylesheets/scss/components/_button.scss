@@ -14,9 +14,8 @@
   outline: none;
   background-size: 300% 100%;
   text-decoration: none;
-
+  cursor: pointer;
   &:hover {
-    cursor: pointer;
     @include transition(all, 0.4s, ease-in-out);
     background-color: $c-secondary;
     background-position: 100% 0;
@@ -31,5 +30,38 @@
   }
   &:focus {
     outline: none !important;
+  }
+  &.gost {
+    background-color: transparent;
+    color: $c-primary;
+    border: solid 2px $c-primary;
+    &:hover {
+      color: $c-light;
+    }
+  }
+}
+.btn-rounded {
+  display: block;
+  height: 6.5rem;
+  width: 6.5rem;
+  margin: 0.7rem;
+  border-radius: 6rem;
+  background-color: $c-primary;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  @include box-shadow(0.1rem, 0.1rem, 1rem, 0, $c-medium-rgba, false);
+  > button {
+    width: 100%;
+  }
+  > img {
+    height: 4rem;
+    width: 4rem;
+  }
+  &:hover {
+    background-color: $c-accent;
   }
 }

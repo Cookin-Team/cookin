@@ -114,11 +114,13 @@
               flex-flow: row nowrap;
               justify-content: flex-start;
               align-items: center;
+              width: 100%;
               img {
-                height: 2.5rem;
+                height: 3rem;
                 margin-right: 1rem;
-                background-color: $c-primary;
-                border-radius: 5rem;
+                background-color: transparent;
+                border-radius: 6rem;
+                border: solid 0.2rem transparent;
               }
             }
           }
@@ -133,11 +135,12 @@
           a,
           .btn-special {
             &.icon {
+              width: 6rem;
               &:hover {
                 border-color: transparent;
                 img {
                   @include transition(all, 0.4s, ease-in-out);
-                  background-color: $c-accent;
+                  border: solid 0.2rem $c-primary;
                 }
               }
             }
@@ -193,7 +196,7 @@
                 border-color: transparent;
                 img {
                   @include transition(all, 0.4s, ease-in-out);
-                  background-color: $c-accent;
+                  border: solid 0.2rem $c-primary;
                 }
               }
             }

@@ -20,8 +20,8 @@
     </p>
     <p class="time">{{this.time}} "</p>
   </div>
-  <form action="/recipes/add-favorite/{{this._id}}
-      " method="POST">
-    <button type="submit"><i class="fas fa-heart"></i></button>
+  <form action="/recipes/add-favorite/{{recipe.id}}" method="POST">
+    <button class="btn-rounded" type="submit">
+      <img src="/images/heart.svg" alt="Add to favorites" /></button>
   </form>
 </div>
