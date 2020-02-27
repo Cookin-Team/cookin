@@ -448,7 +448,7 @@ h4 {
   line-height: 1.1;
   margin: 2rem 0; }
 
-.title {
+.title-special {
   color: #2f2f31;
   font-size: 1.8em;
   line-height: 1.4;
@@ -477,7 +477,7 @@ a,
     font-size: 2.3em; }
   h4 {
     font-size: 2em; }
-  .title {
+  .title-special {
     font-size: 2em; }
   p {
     font-size: 1.5rem; }
@@ -492,7 +492,7 @@ a,
     font-size: 3em; }
   h3 {
     font-size: 2.8em; }
-  .title {
+  .title-special {
     font-size: 2.2em; }
   h4 {
     font-size: 2.2em; }
