@@ -14,7 +14,7 @@ let dataUsers = [
     street: "Calle Betron Ramírez nº10",
     city: "Madrid",
     country: "España",
-    recipesFavourites: [],
+    recipesFavorites: [],
     ingredientsList: [],
     rol: "admin"
   },
@@ -26,7 +26,7 @@ let dataUsers = [
     street: "Bajada de la Libertad 23",
     city: "Madrid",
     country: "España",
-    recipesFavourites: [],
+    recipesFavorites: [],
     ingredientsList: [],
     rol: "admin"
   },
@@ -38,7 +38,7 @@ let dataUsers = [
     street: "Calle Luisa Lucas 51",
     city: "Barcelona",
     country: "España",
-    recipesFavourites: [],
+    recipesFavorites: [],
     ingredientsList: [],
     rol: "subscriber"
   }

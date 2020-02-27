@@ -10,7 +10,7 @@ const userSchema = new Schema(
     street: String,
     city: String,
     country: String,
-    recipesFavourites: [{ type: Schema.Types.ObjectId, ref: "Favorites" }],
+    recipesFavorites: [{ type: Schema.Types.ObjectId, ref: "Recipes" }],
     ingredientsList: [{ type: Schema.Types.ObjectId, ref: "Ingredients" }],
     visits: { type: Number, default: 0 },
     rol: { type: String, default: "subscriber" }
