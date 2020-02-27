@@ -1,4 +1,4 @@
-<div id="print-list" class="container box-ingredients">
+<div class="container box-ingredients">
   <h1>Your Shooping List {{user.lastname}}</h1>
   <h2>Total Ingredients: <span>{{ingredientsTotal}}</span></h2>
 
@@ -11,6 +11,14 @@
       </form>
     </li>
 
+    {{/each}}
+  </ul>
+
+  <ul id="print-list" class="print-list">
+    <h1>Your Shooping List {{user.lastname}}</h1>
+    <h2>Total Ingredients: <span>{{ingredientsTotal}}</span></h2>
+    {{#each user.ingredientsList}}
+    <li>{{this.name}}</li>
     {{/each}}
   </ul>
 

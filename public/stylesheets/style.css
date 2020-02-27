@@ -1279,6 +1279,9 @@ h2 span {
         .user-list li .actions form.user-upload {
           margin-bottom: 10px; } }
 
+.print-list {
+  display: none; }
+
 .box-ingredients {
   display: flex;
   justify-content: center;
