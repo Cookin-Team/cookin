@@ -1,55 +1,82 @@
-<div class="container-fluid">
+<div class="container-fluid single-recipe">
   <div class="container">
-    <h1>{{recipe.title}}</h1>
     <div class="wrapper">
       <div class="left">
-        <div class="image"><img style="width:100%; max-width:400px;" src="{{recipe.imageSrc}}" alt="{{recipe.imgName}}">
+        <h1>{{recipe.title}}</h1>
+        <div class="image"><img src="{{recipe.imageSrc}}" alt="{{recipe.imgName}}">
         </div>
-        <div class="description">
-          <p>{{recipe.description}}</p>
-        </div>
-        <div><a href="/recipes">VIEW ALL RECIPES</a></div>
-      </div>
-      <div class="right">
         <div class="details">
-          <p class="type">
-            {{#each recipe.types}}
-            <span class="tag">{{this}}</span>
-            {{/each}}
-          </p>
-          <p class="time">{{recipe.time}} "</p>
-          <p class="servings">{{recipe.servings}}
-            {{#checkplural this.servings 1}}
-            servings
-            {{else}}
-            serving
-            {{/checkplural}}
-          </p>
+          <div class="type">
+            <p>
+              {{#each recipe.types}}
+              <span class="tag">{{this}}</span>
+              {{/each}}
+            </p>
+          </div>
+          <div class="time">
+            <p><i class="fa fa-clock-o" aria-hidden="true"></i> {{recipe.time}} "</p>
+          </div>
+          <div class="servings">
+            <p><i class="fa fa-cutlery" aria-hidden="true"></i>
+              {{#checkplural recipe.servings 1}}
+              Servings:
+              {{else}}
+              Serving:
+              {{/checkplural}}
+              {{recipe.servings}}
+            </p>
+          </div>
           <div class="ingredients">
-            <p>Ingredients:</p>
+            <p><i class="fa fa-shopping-basket" aria-hidden="true"></i> Ingredients:</p>
             <ul>
               {{#each recipe.ingredients}}
               <li class="ingredient">{{this.name}}</li>
               {{/each}}
             </ul>
           </div>
+          <div class="description">
+            <p><i class="fa fa-book" aria-hidden="true"></i> Instructions:</p>
+            <p><span>{{recipe.description}}</span></p>
+          </div>
         </div>
+      </div>
+      <div class="right">
         <div class="actions">
-          <!--{{#ifequal user.rol value="subscriber"}}-->
+          {{#ifequal user.rol value="subscriber"}}
+          <div class="crud-actions">
+            <form action="/recipes/add-favorite/{{recipe.id}}" method="POST">
+              <button class="btn-rounded" type="submit">
+                <img src="/images/heart.svg" alt="Add to favorites" /></button>
+            </form>
+            <form action="/recipes/shopping-list/{{recipe.id}}/{{user.id}}" method="POST">
+              <button class="btn-rounded" type="submit"><img src="/images/basket.svg" alt="Add to shopping list" />
+              </button>
+            </form>
+            <div class="flow-actions">
+              <div><a class="btn gost" href="/recipes">BACK TO RECIPES LIST</a></div>
+            </div>
+          </div>
 
-          <!--{{/ifequal}}-->
+          {{/ifequal}}
           {{#ifequal user.rol value="admin"}}
-          <form action="/recipes/add-favorite/{{recipe.id}}" method="POST">
-            <button type="submit"><i class="fas fa-heart"></i>ADD TO FAVORITES</button>
-          </form>
-          <form action="/recipes/shopping-list/{{recipe.id}}/{{user.id}}" method="POST">
-            <button type="submit">ADD TO SHOPPING LIST</button>
-          </form>
-          <div><a href="/add-recipes">ADD NEW RECIPE</a></div>
-          <div><a href="/recipes/edit/{{recipe.id}}">EDIT RECIPE</a></div>
-          <form action="/recipes/delete/{{recipe.id}}" method="POST">
-            <button type="submit">DELETE</button>
-          </form>
+          <div class="crud-actions">
+            <form action="/recipes/add-favorite/{{recipe.id}}" method="POST">
+              <button class="btn-rounded" type="submit">
+                <img src="/images/heart.svg" alt="Add to favorites" /></button>
+            </form>
+            <form action="/recipes/shopping-list/{{recipe.id}}/{{user.id}}" method="POST">
+              <button class="btn-rounded" type="submit"><img src="/images/basket.svg" alt="Add to shopping list" />
+              </button>
+            </form>
+            <form action="/recipes/delete/{{recipe.id}}" method="POST">
+              <button class="btn-rounded" type="submit"><img src="/images/delete.svg" alt="Remove recipe" /></button>
+            </form>
+            <div><a class="btn-rounded" href="/recipes/edit/{{recipe.id}}"><img src="/images/edit.svg"
+                  alt="Edit recipe" /></a></div>
+          </div>
+          <div class="flow-actions">
+            <div><a class="btn gost" href="/recipes">BACK TO RECIPES LIST</a></div>
+          </div>
           {{/ifequal}}
         </div>
       </div>

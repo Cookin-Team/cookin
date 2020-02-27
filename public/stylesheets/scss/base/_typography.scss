@@ -11,8 +11,9 @@ h1 {
 }
 
 h2 {
+  font-family: &primary-font;
   color: $c-dark;
-  font-size: 2.2em;
+  font-size: 3rem;
   line-height: 1.1;
   margin: 2.2rem 0;
 }
