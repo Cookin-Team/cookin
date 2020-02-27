@@ -62,45 +62,6 @@ router.get("/recipes/:id", async (req, res, next) => {
   }
 });
 
-// /* POST favorites page */
-// router.post("/recipes/add-favorite/:id", async (req, res, next) => {
-//   try {
-//     const { id } = req.params;
-//     const favorite = await Recipe.findById(id);
-
-//     console.log("user--->", favorite);
-//     // console.log("favorites", favorites);
-//     // res.render("recipes/favorites", { favorites });
-//     res.render("recipes/favorites");
-//   } catch (error) {
-//     next(error);
-//   }
-// });
-
-/* POST favorite recipe */
-router.post(
-  "/recipes/add-favorite/:id",
-  isLoggedIn(null, true),
-  async (req, res, next) => {
-    try {
-      const { id } = req.params;
-      const userActiveId = req.user.id;
-      const recipeFavorite = await Recipe.findById(id);
-      //const userActive = await User.findById(userActiveId);
-
-      console.log("---- >>> RECIPE", recipeFavorite);
-      //console.log("---- >>> USER", userActive);
-      await User.findByIdAndUpdate(userActiveId, {
-        $addToSet: { recipesFavourites: recipeFavorite }
-      });
-
-      res.redirect("/recipes");
-    } catch (error) {
-      next(error);
-    }
-  }
-);
-
 /* POST delete recipe */
 router.post("/recipes/delete/:id", isLoggedIn(), async (req, res, next) => {
   try {

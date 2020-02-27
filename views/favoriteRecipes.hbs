@@ -1,0 +1,13 @@
+<div class="container-fluid">
+  <div class="container">
+    <h1>{{user.name}}'s Favorite Recipes</h1>
+    <h2>Totals Favorites Recipes: <span>{{favoritesRecipesTotal}}</span></h2>
+    <div class="recipes-wrapper">
+      {{#with user}}
+      {{#each recipesFavorites}}
+      {{>recipecardFavorite}}
+      {{/each}}
+      {{/with}}
+    </div>
+  </div>
+</div>

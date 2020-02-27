@@ -46,7 +46,6 @@
   width: 6.5rem;
   margin: 0.7rem;
   border-radius: 6rem;
-  background-color: $c-primary;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -61,7 +60,18 @@
     height: 4rem;
     width: 4rem;
   }
-  &:hover {
+  &.form-add {
+    background-color: $c-primary;
+  }
+  &.form-delete {
     background-color: $c-accent;
+  }
+  &.form-add:hover {
+    opacity: 0.85;
+    @include animation(all 1000 ease);
+  }
+  &.form-delete:hover {
+    opacity: 0.9;
+    @include animation(all 1000 ease);
   }
 }

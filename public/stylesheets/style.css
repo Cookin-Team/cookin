@@ -816,7 +816,6 @@ a,
   width: 6.5rem;
   margin: 0.7rem;
   border-radius: 6rem;
-  background-color: #4dbc4b;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -831,8 +830,24 @@ a,
   .btn-rounded > img {
     height: 4rem;
     width: 4rem; }
-  .btn-rounded:hover {
+  .btn-rounded.form-add {
+    background-color: #4dbc4b; }
+  .btn-rounded.form-delete {
     background-color: #ff7959; }
+  .btn-rounded.form-add:hover {
+    opacity: 0.85;
+    -webkit-animation: all 1000 ease;
+    -moz-animation: all 1000 ease;
+    -ms-animation: all 1000 ease;
+    -o-animation: all 1000 ease;
+    animation: all 1000 ease; }
+  .btn-rounded.form-delete:hover {
+    opacity: 0.9;
+    -webkit-animation: all 1000 ease;
+    -moz-animation: all 1000 ease;
+    -ms-animation: all 1000 ease;
+    -o-animation: all 1000 ease;
+    animation: all 1000 ease; }
 
 form {
   background-color: #ffffff;

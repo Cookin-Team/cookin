@@ -103,6 +103,9 @@ app.use("/blog", blog);
 const shoppingList = require("./routes/shopping-list");
 app.use("/", shoppingList);
 
+const favoriteRecipes = require("./routes/favoriteRecipes");
+app.use("/", favoriteRecipes);
+
 const index = require("./routes/index");
 app.use("/", index);
 
