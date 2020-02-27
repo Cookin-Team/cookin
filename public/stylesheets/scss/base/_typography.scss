@@ -32,6 +32,13 @@ h4 {
   margin: 2rem 0;
 }
 
+.title {
+  color: $c-dark;
+  font-size: 1.8em;
+  line-height: 1.4;
+  margin: 3rem 0 2rem;
+}
+
 p {
   color: $c-medium;
   font-size: 1.4rem;
@@ -67,6 +74,10 @@ a,
     font-size: 2em;
   }
 
+  .title {
+    font-size: 2em;
+  }
+
   p {
     font-size: 1.5rem;
   }
@@ -87,6 +98,10 @@ a,
 
   h3 {
     font-size: 2.8em;
+  }
+
+  .title {
+    font-size: 2.2em;
   }
 
   h4 {
