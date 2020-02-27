@@ -60,7 +60,7 @@
           {{/ifequal}}
           {{#ifequal user.rol value="admin"}}
           <div class="crud-actions">
-            <form action="/recipes/add-favorite/{{recipe.id}}" method="POST">
+            <form action="/add-favorite/{{recipe.id}}" method="POST">
               <button class="btn-rounded" type="submit">
                 <img src="/images/heart.svg" alt="Add to favorites" /></button>
             </form>
@@ -68,11 +68,12 @@
               <button class="btn-rounded" type="submit"><img src="/images/basket.svg" alt="Add to shopping list" />
               </button>
             </form>
-            <form action="/recipes/delete/{{recipe.id}}" method="POST">
-              <button class="btn-rounded" type="submit"><img src="/images/delete.svg" alt="Remove recipe" /></button>
-            </form>
             <div><a class="btn-rounded" href="/recipes/edit/{{recipe.id}}"><img src="/images/edit.svg"
                   alt="Edit recipe" /></a></div>
+            <form action="/recipes/delete/{{recipe.id}}" method="POST">
+              <button class="btn-rounded form-delete" type="submit"><img src="/images/delete.svg"
+                  alt="Remove recipe" /></button>
+            </form>
           </div>
           <div class="flow-actions">
             <div><a class="btn gost" href="/recipes">BACK TO RECIPES LIST</a></div>

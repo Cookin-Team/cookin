@@ -815,6 +815,7 @@ a,
   height: 6.5rem;
   width: 6.5rem;
   margin: 0.7rem;
+  background-color: #4dbc4b;
   border-radius: 6rem;
   display: flex;
   flex-flow: column nowrap;
@@ -830,6 +831,13 @@ a,
   .btn-rounded > img {
     height: 4rem;
     width: 4rem; }
+  .btn-rounded:hover {
+    opacity: 0.85;
+    -webkit-animation: all 1000 ease;
+    -moz-animation: all 1000 ease;
+    -ms-animation: all 1000 ease;
+    -o-animation: all 1000 ease;
+    animation: all 1000 ease; }
   .btn-rounded.form-add {
     background-color: #4dbc4b; }
   .btn-rounded.form-delete {
