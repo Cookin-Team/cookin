@@ -8,6 +8,14 @@
     }
   }
   .content {
+    padding: 2rem;
+    h1 {
+      padding: 0 30% 0 0;
+    }
+    p {
+      font-size: 1.8rem;
+      line-height: 2.8rem;
+    }
     .btn {
       display: inline-block;
       text-align: center;
@@ -22,6 +30,7 @@
     .btn {
       text-transform: uppercase;
       text-decoration: underline;
+      text-decoration: none;
     }
   }
 }
@@ -49,7 +58,7 @@
     &.inverse {
       flex-direction: row-reverse;
       .content {
-        padding: 10px 0 10px 20px;
+        padding: 10px 0 10px 80px;
       }
     }
     .box-img {
