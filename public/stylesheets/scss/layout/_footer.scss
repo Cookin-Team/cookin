@@ -4,7 +4,7 @@
     margin-top: 4rem;
   }
   .wrapper {
-    padding: 10rem 2rem;
+    padding: 3rem 2rem;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -19,24 +19,30 @@
       }
     }
     .info {
-      padding: 2rem;
+      padding: 0;
       display: flex;
       flex-flow: column nowrap;
       justify-content: space-between;
       align-items: center;
-      .rrss ul {
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: space-around;
-        align-items: center;
-        padding: 0;
-        li {
-          list-style-type: none;
-          color: $c-light;
-          a {
-            text-decoration: none;
+      .rrss {
+        margin-bottom: 0.5rem;
+        ul {
+          display: flex;
+          flex-flow: row nowrap;
+          justify-content: space-around;
+          align-items: center;
+          padding: 0;
+          li {
+            list-style-type: none;
             color: $c-light;
-            margin: 1rem;
+            a {
+              text-decoration: none;
+              color: $c-light;
+              margin: 1rem;
+              &:hover {
+                text-decoration: underline;
+              }
+            }
           }
         }
       }
@@ -57,6 +63,7 @@
     }
     .info {
       flex-flow: row nowrap;
+      padding: 2rem;
     }
   }
 }
