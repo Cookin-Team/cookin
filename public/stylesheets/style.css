@@ -743,7 +743,7 @@ a,
   margin-top: 4rem; }
 
 .footer .wrapper {
-  padding: 10rem 2rem;
+  padding: 3rem 2rem;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
@@ -758,24 +758,28 @@ a,
       height: 7rem;
       margin: 2rem; }
   .footer .wrapper .info {
-    padding: 2rem;
+    padding: 0;
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
     align-items: center; }
-    .footer .wrapper .info .rrss ul {
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: space-around;
-      align-items: center;
-      padding: 0; }
-      .footer .wrapper .info .rrss ul li {
-        list-style-type: none;
-        color: #ffffff; }
-        .footer .wrapper .info .rrss ul li a {
-          text-decoration: none;
-          color: #ffffff;
-          margin: 1rem; }
+    .footer .wrapper .info .rrss {
+      margin-bottom: 0.5rem; }
+      .footer .wrapper .info .rrss ul {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0; }
+        .footer .wrapper .info .rrss ul li {
+          list-style-type: none;
+          color: #ffffff; }
+          .footer .wrapper .info .rrss ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            margin: 1rem; }
+            .footer .wrapper .info .rrss ul li a:hover {
+              text-decoration: underline; }
     .footer .wrapper .info .copy-rigth p {
       color: #ffffff;
       font-weight: bold; }
@@ -784,7 +788,8 @@ a,
   .footer .wrapper .logo {
     text-align: left; }
   .footer .wrapper .info {
-    flex-flow: row nowrap; } }
+    flex-flow: row nowrap;
+    padding: 2rem; } }
 
 .btn {
   font: normal 1.6rem "Montserrat", "Helvetica Neue Light", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
