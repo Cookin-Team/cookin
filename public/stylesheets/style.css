@@ -423,14 +423,14 @@ main {
  * Basic typography style for copy text
  */
 h1 {
-  font-family: h1 primary-font;
+  font-family: "DM Serif Display", serif;
   color: #2f2f31;
   line-height: 1.1;
   font-size: 3.6em;
   margin: 2.8rem 0; }
 
 h2 {
-  font-family: h2 primary-font;
+  font-family: "DM Serif Display", serif;
   color: #2f2f31;
   font-size: 3rem;
   line-height: 1.1;
@@ -457,7 +457,7 @@ h4 {
 p {
   color: #3a3f5c;
   font-size: 1.4rem;
-  line-height: 1.8rem;
+  line-height: 2.2rem;
   margin: 0 0 1.2rem 0; }
   p::selection {
     color: white; }
@@ -487,7 +487,7 @@ a,
 
 @media (min-width: 992px) {
   h1 {
-    font-size: 4.8em; }
+    font-size: 4.6em; }
   h2 {
     font-size: 3em; }
   h3 {
@@ -665,7 +665,8 @@ a,
   @media (min-width: 768px) {
     .menu .menu-wrapper .menu-active ul li a.icon,
     .menu .menu-wrapper .menu-active ul li .btn-special.icon {
-      width: 6rem; }
+      width: 100%;
+      text-align: left; }
       .menu .menu-wrapper .menu-active ul li a.icon:hover,
       .menu .menu-wrapper .menu-active ul li .btn-special.icon:hover {
         border-color: transparent; }
@@ -715,6 +716,7 @@ a,
             .menu .menu-wrapper .menu-active ul li a.icon img,
             .menu .menu-wrapper .menu-active ul li .btn-special.icon img {
               height: 4rem;
+              width: 4rem;
               margin: 0; }
             .menu .menu-wrapper .menu-active ul li a.icon span,
             .menu .menu-wrapper .menu-active ul li .btn-special.icon span {
@@ -1027,9 +1029,16 @@ form {
   .col-2 .box-img img {
     display: block;
     width: 100%; }
-  .col-2 .content .btn {
-    display: inline-block;
-    text-align: center; }
+  .col-2 .content {
+    padding: 2rem; }
+    .col-2 .content h1 {
+      padding: 0 30% 0 0; }
+    .col-2 .content p {
+      font-size: 1.8rem;
+      line-height: 2.8rem; }
+    .col-2 .content .btn {
+      display: inline-block;
+      text-align: center; }
   .col-2 form {
     background: none;
     border: none;
@@ -1038,7 +1047,8 @@ form {
     box-shadow: none; }
     .col-2 form .btn {
       text-transform: uppercase;
-      text-decoration: underline; }
+      text-decoration: underline;
+      text-decoration: none; }
 
 .col-3 {
   display: flex;
@@ -1060,7 +1070,7 @@ form {
     .col-2.inverse {
       flex-direction: row-reverse; }
       .col-2.inverse .content {
-        padding: 10px 0 10px 20px; }
+        padding: 10px 0 10px 80px; }
     .col-2 .box-img {
       width: 50%; }
     .col-2 .content {

@@ -135,7 +135,8 @@
           a,
           .btn-special {
             &.icon {
-              width: 6rem;
+              width: 100%;
+              text-align: left;
               &:hover {
                 border-color: transparent;
                 img {
@@ -187,6 +188,7 @@
               align-items: center;
               img {
                 height: 4rem;
+                width: 4rem;
                 margin: 0;
               }
               span {
