@@ -46,7 +46,7 @@ En el siguiente enlace se muestra el [Código de Conducta](https://github.com/Co
 
 ### Autores
 ---
-Pilar García Campo y Rubén Vaquero de la Torre
+[Pilar García Campo](https://www.linkedin.com/in/pilargarciacampo/) y [Rubén Vaquero de la Torre](https://www.linkedin.com/in/rubenvaquero/)
 
 ### Licencia 
 ---
