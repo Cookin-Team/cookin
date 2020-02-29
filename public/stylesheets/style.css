@@ -1562,7 +1562,7 @@ iframe,
       width: 100%; }
       .single-recipe .container .wrapper .right .actions .crud-actions {
         display: flex;
-        flex-flow: row nowrap;
+        flex-flow: wrap;
         justify-content: flex-start;
         align-items: center; }
         .single-recipe .container .wrapper .right .actions .crud-actions > form {
