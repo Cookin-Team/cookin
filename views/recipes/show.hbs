@@ -13,30 +13,37 @@
               {{/each}}
             </p>
           </div>
-          <div class="time">
-            <p><i class="fa fa-clock-o" aria-hidden="true"></i> {{recipe.time}} "</p>
+        </div>
+        <div class="content-details">
+
+          <div class="details">
+            <div class="time">
+              <p><i class="fa fa-clock-o" aria-hidden="true"></i> {{recipe.time}} "</p>
+            </div>
+            <div class="servings">
+              <p><i class="fa fa-cutlery" aria-hidden="true"></i>
+                {{#checkplural recipe.servings 1}}
+                Servings:
+                {{else}}
+                Serving:
+                {{/checkplural}}
+                {{recipe.servings}}
+              </p>
+            </div>
+            <div class="ingredients">
+              <p><i class="fa fa-shopping-basket" aria-hidden="true"></i> Ingredients:</p>
+              <ul>
+                {{#each recipe.ingredients}}
+                <li class="ingredient">{{this.name}}</li>
+                {{/each}}
+              </ul>
+            </div>
           </div>
-          <div class="servings">
-            <p><i class="fa fa-cutlery" aria-hidden="true"></i>
-              {{#checkplural recipe.servings 1}}
-              Servings:
-              {{else}}
-              Serving:
-              {{/checkplural}}
-              {{recipe.servings}}
-            </p>
-          </div>
-          <div class="ingredients">
-            <p><i class="fa fa-shopping-basket" aria-hidden="true"></i> Ingredients:</p>
-            <ul>
-              {{#each recipe.ingredients}}
-              <li class="ingredient">{{this.name}}</li>
-              {{/each}}
-            </ul>
-          </div>
-          <div class="description">
-            <p><i class="fa fa-book" aria-hidden="true"></i> Instructions:</p>
-            <p><span>{{recipe.description}}</span></p>
+          <div class="details">
+            <div class="description">
+              <p><i class="fa fa-book" aria-hidden="true"></i> Instructions:</p>
+              <p><span>{{recipe.description}}</span></p>
+            </div>
           </div>
         </div>
       </div>
