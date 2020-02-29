@@ -4,7 +4,7 @@
 
   <ul class="ingredient-list">
     {{#each user.ingredientsList}}
-    <li>
+    <li data-aos="zoom-in">
       <p class="info">{{this.name}}</p>
       <form action="/ingredientlist/delete/{{this.id}}" method="POST" class="user-delete">
         <button type="submit"><i class="fa fa-trash-alt"></i></button>

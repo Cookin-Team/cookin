@@ -1074,8 +1074,7 @@ form {
 @media (min-width: 768px) {
   .col-2 {
     flex-direction: row;
-    justify-content: flex-end;
-    margin-bottom: 30px; }
+    justify-content: flex-end; }
     .col-2.inverse {
       flex-direction: row-reverse; }
       .col-2.inverse .content {
@@ -1406,7 +1405,7 @@ h2 span {
     flex-direction: wrap;
     justify-content: flex-start; }
     .box-ingredients .ingredient-list li {
-      width: 32%;
+      width: 31.4%;
       margin-right: 2%; }
       .box-ingredients .ingredient-list li:nth-child(3n) {
         margin-right: 0; }
