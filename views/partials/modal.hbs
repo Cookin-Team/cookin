@@ -1,11 +1,11 @@
-<div id="modalPopUp">
+<div id="modalPopUp" class="{{#ifequal modalStatus value="true"}}active{{/ifequal}}">
   <div class="container">
     <div id="close" class="close btn-rounded"><img src="/images/exit.svg" alt="Add to favorites" /></div>
     <div class="header">
-      <p class="title-special">{{title}}</p>
+      <p class="title-special">{{titleModal}}</p>
     </div>
     <div class="content">
-      <p>{{message}}</p>
+      <p>{{messageModal}}</p>
     </div>
   </div>
 </div>
