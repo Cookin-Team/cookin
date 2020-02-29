@@ -120,6 +120,15 @@
         .right {
           width: 30%;
         }
+        .content-details {
+          display: flex;
+          .details:first-child {
+            width: 30%;
+          }
+          .details:last-child {
+            width: 70%;
+          }
+        }
       }
     }
   }
