@@ -37,7 +37,10 @@ router.post("/", isLoggedOut(), async (req, res, next) => {
       return res.redirect("/about");
     });
   } else {
-    res.render("auth/register");
+    const modalStatus = "true";
+    const titleModal = "Attention:";
+    const messageModal = "A user already exists for this email, please login.";
+    res.render("auth/login", { modalStatus, titleModal, messageModal });
   }
 });
 
