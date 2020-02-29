@@ -2,6 +2,8 @@ const hamburger = document.getElementById("menu-mobile");
 const menuWrapper = document.getElementById("menu-mobile-wrapper");
 const btnPrint = document.getElementById("btn-print");
 const myPassword = $("#myPassword");
+const closeModal = document.getElementById("close");
+const modal = document.getElementById("modalPopUp");
 
 document.addEventListener(
   "DOMContentLoaded",
@@ -37,6 +39,13 @@ document.addEventListener(
         strengthButtonText: `<i class="fas fa-eye"></i>`,
         strengthButtonTextToggle: `<i class="fas fa-eye-slash"></i>`
       });
+    }
+
+    //Btn close modal
+    if (closeModal) {
+      closeModal.onclick = function(e) {
+        modal.classList.remove("active");
+      };
     }
   },
   false
