@@ -1,67 +1,53 @@
-# COOKIN  🍲
+# cookin  🍲
 
 ### Descripción
 ---
-Juego de creación de pizzas. Se compone de una cuenta atrás, un marcador, unos clientes y unas pistas con las que ir haciendo las pizzas.
-
-El motivo de su creación, en diciembre de 2019, ha sido el trabajo final del 1º módulo del Bootcamp Ironhack y a su vez como reto personal.
+Web de recetas en la que puedes consultar de forma actualizada las nuevas publicaciones a través de la pagina de blog. Además el usuario puede crear su lista de recetas personalizada una vez que ha completado el registro, así como crear una lista de la compra con los igredientes necesarios. Existen dos perfiles de usuario, administrador y suscriptor. El administrador además de lo anteior podrá gestiniar los usuarios existentes en la plataforma, crear y editar las propias recetas. 
 
 ### Guía de usuario
 ---
-Es un juego de 8 niveles donde en cada nivel encontramos un personaje o cliente, con una pizza, unas pistas para la creación de la misma y un mensaje de victoria y de derrota.
+Cualquier usuario puede convertirse en suscriptor realizando un registro de manera sencilla. Una vez finalizado podrá disfrutar de las opcines de la plataforma personalizadas para cada usuario. 
 
-El usuario tendrá que ir eligiendo los ingredientes para lograr acertar que pizza quiere cada cliente. Para ello debe ir siguiendo las pistas que le irán dando.
-
-Todo ello lo tendrá que conseguir en un tiempo limitado y con ayuda de un marcador en el que podrá ir viendo los aciertos y errores que va teniendo.
+Para convertirte en administrador deberás solicitar permisos a los creadores de la web. Así podrás crear nuevas recetas, editar información y administrar los propios usuarios.
  	
 ### Guía de instalación
 ---
-Juego realizado con HTML, CSS, CANVAS y JAVASCRIPT.
+Web realizada con NODE.JS, EXPRESS, NPM PACKAGES, MONGODB, HTML, SASS y JAVASCRIPT.
 
-La **estructura de archivos** es la siguiente:
-- HTML (index.html)
-    - **HOME SCREEN:** Pantalla inicial.
-    - **MESSAGE INSTRUCTIONS:** Lightbox con las instrucciones.
-    - **GAME SCREEN:** Pantalla principal del juego. En esta sección está creada la etiqueta canvas.
-    - **MESSAGE SUCCESS / MESSAGE END SUCCESS / MESSAGE GAME OVER:** Lightbox de victoria, victoria final y derrota.
-    - **MESSAGE MOBILE:** Mensaje informativo responsive.
-- CSS
-  - **reset.css:** Archivo reset del css.
-  - **style.css:** Actualmente tiene responsive hasta 800px de ancho y 500px de alto.
-- JS 
-  - **data-clients.js:** Array de objetos **clients**, que contiene toda la **información de cada cliente**: nombre del personaje, nombre de la pizza y sus ingredientes, el tiempo que tiene el usuario para resolverlo, las pistas para adivinar la pizza, los mensajes de victoria y derrota específicos y las urls de las imágenes y de la música propias de cada cliente.
-  - **game.js:** Encontramos la class **game**, donde se encuentran las propiedades y los métodos que realizan la comprobación del marcador de aciertos y errores, el tiempo, y el checkeo de victoria o derrota.
-  - **canvas.js:**: class **canvasPizza** que recibe un array de ingredientes y los va pintando en el canvas. Para ello se usan varios métodos, para calcular la proporción, randoms para el tamaño y posición de las imágenes y un método para ordenar los ingredientes por orden de profundidad para poder pintarlos en ese orden específico.
-  - **script.js:** Encontramos definidas todas las variables, el onclick del **botón inicial**, la configuración de los **tabs de instrucciones** y la función **startGame** que incluye la iteración con slider, la recogida de datos de data-clients, la creación de las class y las iteraciones con las mismas para el funcionamiento del juego.
-  - **slider.js:** Carga del slider y configuración del mismo.
-  - **swipper.min.js:** Carga de la librería de swipper. La versión utilizada es la v5.2.1
+**Al estar hecho con Node.js** la estructura de archivos es la siguiente:
+- **VIEWS:** Utilizando el paquete npm de handlebars para crear las distintas vistas, compuestas de un layout general y diferentes partials que permiten la creacción de los distintos HTML.
+- **SEED:** El contenido original de la aplicación proviene de la API [Spoonacular](https://spoonacular.com/), aquí generamos la base de datos inicial del proyecto y los usuarios iniciales.
+- **ROUTES:** Gestiona las distintas llamadas para las peticiones a la base de datos (CRUD), y la visualización de las páginas.
+- **PUBLIC:** Aquí se encuentran disponibles los recursos estáticos de la aplicación: imágenes, styles y javascript.
+- **PASSPORT:** La gestión del logi y la autentificación del usuario se realiza a través del package NPM Passport, aquí puedes encontrar tanto la configuración del paquete como la estrategia local.
+- **MODELS:** Utilizamos tres schemas de Moongose: User, Recipe e Ingredients. Los tres están relaccionados para diferentes funcionalidades a través de sus ids de referencia.
+- **LIB:** Utilizamos dos middlewares. "isLoggedIn" para la gestión de los usuarios y "hashing" para encriptar la contraseña.
+- **CONFIG:** Contiene la configuración del CDN de [Cloudinary](https://cloudinary.com/).
 
 #### Dependencias
-
-La documentación de la librería del swiper slider se puede consultar [aquí.](https://swiperjs.com/api/)
+- **STRENGTH:**  Utilizado para comprobar la seguridad de tu contraseña. [Strength](https://www.jquerycards.com/forms/inputs/strength-js/).
+- **AOS:**  Libreria para animaciones CSS con scroll. [AOS CSS](https://michalsnik.github.io/aos/).
 
 ### Cómo contribuir
 ---
-Toda aportación o comentario será recibido de buen gusto, ya que con ellos se podrá ayudar a crecer tanto al juego cómo a mi para mejorar como desarrollador.
+Toda aportación o comentario será recibido de buen gusto, ya que con ellos se podrá ayudar a crecer tanto la aplicación como a nosotros cómo desarrolladores.
 
 Cualquier mejora será incluida tras una previa revisión a través de un **“pull requests”**. Se requiere un código ordenado y comentado.
 
 Existen muchas **líneas de mejora**, algunas de ellas son:
-- **Slider random:** Los ingredientes del slider tengan diferente posición en cada nivel.
-- **Niveles desbloqueables:** Hacer que se pueda ir a un nivel directamente, desbloqueándoles. Sin necesidad de empezar siempre desde el principio.
-- **Eliminar pistas:** Eliminar las pistas de ingredientes que ya estén ok.
-- **Pista especial:** Botón para pedir o solicitar una pista. Esa pista sería especial por el nivel de la ayuda que te proporcionará. Sólo se podrá solicitar un vez por partida.
-- **Bug Slider:** Pequeño bug que le hace tener un efecto raro al interpretar algunos click el slider.
-- **Responsive:** Faltaría finalizarlo, haciendo el mobile.
+- **Cambiar Password:** Posibilidad de cambiar la contraseña tras realizar el registro.
+- **Tamaño imagenes cloudinare:** Al subir las imágenes al cloudinary, subirlas en las dimensiones requeridas.
+- **Receta creada por AUTHOR:** Relacionar la receta con su creador.
+- **Lighbox de notificación:** Notificaciones de ayuda de usuario cuando realiza distintas acciones.
 
 ### Código de conducta 
 ---
-En el siguiente enlace se muestra el [Código de Conducta](https://github.com/RVaquero87/pizza_hack/blob/master/CODE_OF_CONDUCT.md).
+En el siguiente enlace se muestra el [Código de Conducta](https://github.com/Cookin-Team/cookin/blob/master/CODE_OF_CONDUCT.md).
 
-### Autor
+### Autores
 ---
-Rubén Vaquero de la Torre
+Pilar García Campo y Rubén Vaquero de la Torre
 
 ### Licencia 
 ---
-Aquí se puede consultar la [Licencia](https://github.com/RVaquero87/pizza_hack/blob/master/LICENSE.md) para este repositorio.
+Aquí se puede consultar la [Licencia](https://github.com/Cookin-Team/cookin/blob/master/LICENSE.md) para este repositorio.
