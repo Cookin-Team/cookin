@@ -51,7 +51,7 @@
         <div class="actions">
           {{#ifequal user.rol value="subscriber"}}
           <div class="crud-actions">
-            <form action="/recipes/add-favorite/{{recipe.id}}" method="POST">
+            <form action="/add-favorite/{{recipe.id}}" method="POST">
               <button class="btn-rounded" type="submit">
                 <img src="/images/heart.svg" alt="Add to favorites" /></button>
             </form>
