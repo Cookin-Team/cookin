@@ -25,13 +25,19 @@
       }
     }
   }
-  form {
+  form{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+  }
+  button {
     box-shadow: none;
     background-color: transparent;
     border: 0;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 5px;
+    right: 5px;
     padding: 1.5rem;
     margin: 0;
   }

@@ -57,6 +57,12 @@ app.use(
   })
 );
 
+app.use((req, res, next) => {
+  res.locals.user = req.user;
+ // console.log(res.locals.user)
+  next();
+});
+
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
 hbs.registerPartials(__dirname + "/views/partials");
@@ -76,11 +82,21 @@ hbs.registerHelper("checkplural", function(v1, v2, options) {
   }
   return options.inverse(this);
 });
-
-app.use((req, res, next) => {
-  res.locals.user = req.user;
-  next();
+hbs.registerHelper("checkplural", function(v1, v2, options) {
+  if (v1 > v2) {
+    return options.fn(this);
+  }
+  return options.inverse(this);
 });
+hbs.registerHelper('ifIn', function(elem, list, options) {
+  if(list.indexOf(elem) > -1) {
+    return options.fn(this);
+  } else {
+  return options.inverse(this);
+  }
+});
+
+
 
 // default value for title local
 app.locals.title = "COOKIN";
