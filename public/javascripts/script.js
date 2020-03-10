@@ -52,10 +52,10 @@ document.addEventListener(
   },
   false
 );
-//
-let btnAddDOMEl = document.querySelectorAll(".form-favorite");
+// Recetas favoritas
+let btnRecipe = document.querySelectorAll(".form-favorite");
 
-btnAddDOMEl.forEach(button => {
+btnRecipe.forEach(button => {
   button.addEventListener("click", function(e) {
     e.preventDefault();
     console.log(button);
@@ -77,7 +77,7 @@ function addFavorite(btn) {
         btn.classList.add("form-delete");
         modal.classList.add("active");
         titleModal.innerHTML = `Congratulations`;
-        contentModal.innerHTML = "Your recipe has been added to favorites.";
+        contentModal.innerHTML = "Your recipe had been added to favorites.";
       })
       .catch(function(error) {
         console.log(error, "hola");
@@ -91,10 +91,41 @@ function addFavorite(btn) {
         modal.classList.add("active");
         titleModal.innerHTML = "Delete";
         contentModal.innerHTML =
-          "Your recipe has been deleted from favorites..";
+          "Your recipe had been deleted from favorites..";
       })
       .catch(function(error) {
         console.log(error);
       });
   }
+}
+
+//Lista de ingredientes
+
+let btnIngredients = document.querySelectorAll(".form-shopping");
+btnIngredients.forEach(button => {
+  button.addEventListener("click", function(e) {
+    e.preventDefault();
+    console.log(button);
+    addShopping(button);
+  });
+});
+
+//Btn Add shopping
+function addShopping(btn) {
+  const recipeId = btn.getAttribute("data-recipeId");
+  const userId = btn.getAttribute("data-userId");
+  axios
+    .post(`/recipes/shopping-list/${recipeId}/${userId}`)
+    .then(response => {
+      console.log("entra en el then");
+      btn.classList.remove("form-add");
+      btn.classList.add("form-delete");
+      modal.classList.add("active");
+      titleModal.innerHTML = `Congratulations`;
+      contentModal.innerHTML =
+        "Your ingredients had been added to your shopping list.";
+    })
+    .catch(function(error) {
+      console.log(error, "hola");
+    });
 }

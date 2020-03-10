@@ -56,7 +56,7 @@ router.post(
           await User.findByIdAndUpdate(idUser, {
             recipesFavorites: arrayIdsNews.map(recipe => recipe._id)
           });
-         
+
           res.redirect("/favorites");
         })
         .catch(next);

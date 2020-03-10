@@ -74,7 +74,7 @@ router.post(
                 ingredientsList: ingredientUser
               }).then(async userPromise => {
                 await userPromise;
-                res.redirect(`/recipes/${Recipeid}`);
+                res.json({ error: false });
               });
             })
             .catch(next);

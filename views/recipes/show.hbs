@@ -67,12 +67,12 @@
           {{/ifequal}}
           {{#ifequal user.rol value="admin"}}
           <div class="crud-actions">
-            <button class="btn-rounded form-favorite {{#ifIn recipe.id user.recipesFavorites }}form-delete {{else}}form-add{{/ifIn}}" data-recipeId="{{recipe.id}}">
+            <button
+              class="btn-rounded form-favorite {{#ifIn recipe.id user.recipesFavorites }}form-delete {{else}}form-add{{/ifIn}}"
+              data-recipeId="{{recipe.id}}">
               <img src=" /images/heart.svg" alt="Add to favorites" /></button>
-            <form action="/recipes/shopping-list/{{recipe.id}}/{{user.id}}" method="POST">
-              <button class="btn-rounded" type="submit"><img src="/images/basket.svg" alt="Add to shopping list" />
-              </button>
-            </form>
+            <button class="btn-rounded form-shopping" data-recipeId="{{recipe.id}}" data-userId="{{user.id}}">
+              <img src="/images/basket.svg" alt="Add to shopping list" /></button>
             <div><a class="btn-rounded" href="/recipes/edit/{{recipe.id}}"><img src="/images/edit.svg"
                   alt="Edit recipe" /></a></div>
             <form action="/recipes/delete/{{recipe.id}}" method="POST">
