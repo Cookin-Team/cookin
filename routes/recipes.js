@@ -11,7 +11,7 @@ const { isLoggedIn, isLoggedOut } = require("../lib/isLoggedMiddleware");
 router.get("/recipes", async (req, res, next) => {
   try {
     const recipes = await Recipe.find();
-    res.render("recipesList", { recipes });
+    res.render("recipesList", { recipes});
   } catch (error) {
     next(error);
   }

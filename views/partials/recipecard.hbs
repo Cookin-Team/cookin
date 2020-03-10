@@ -18,11 +18,13 @@
       serving
       {{/checkplural}}
     </p>
-    <p class="time">{{this.time}} "</p>
+    <p class="time">{{this.time}}</p>
   </div>
-  <form action="/add-favorite/{{this.id}}" method="POST">
+  <!-- <form action="/add-favorite/{{this.id}}" method="POST">
     <button class="btn-rounded form-add" type="submit">
       <img src="/images/heart.svg" alt="Add to favorites" /></button>
-  </form>
+  </form>  -->
+  <button id="btnFavorite-{{@index}}" class="btn-rounded form-favorite {{#ifIn this.id @root.user.recipesFavorites }}form-delete {{else}}form-add{{/ifIn}}" data-recipeId="{{this.id}}">
+    <img src=" /images/heart.svg" alt="Add to favorites" /></button>
 
 </div>

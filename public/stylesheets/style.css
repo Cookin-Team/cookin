@@ -1014,12 +1014,17 @@ form {
     .card a:hover img {
       opacity: 0.8; }
   .card form {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-shadow: none; }
+  .card button {
     box-shadow: none;
     background-color: transparent;
     border: 0;
     position: absolute;
-    top: 0;
-    right: 0;
+    top: 5px;
+    right: 5px;
     padding: 1.5rem;
     margin: 0; }
   .card .type .tag {

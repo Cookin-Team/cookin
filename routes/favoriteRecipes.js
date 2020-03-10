@@ -9,14 +9,16 @@ const { isLoggedIn, isLoggedOut } = require("../lib/isLoggedMiddleware");
 /* ADD post favorite recipe */
 router.post("/add-favorite/:id", isLoggedIn(), async (req, res, next) => {
   try {
+    console.log("entraback");
     const { id } = req.params;
     const userActiveId = req.user.id;
     const recipeFavorite = await Recipe.findById(id);
     await User.findByIdAndUpdate(userActiveId, {
       $addToSet: { recipesFavorites: recipeFavorite }
     });
-    res.redirect("/recipes");
+    res.json({ error: false });
   } catch (error) {
+    console.log("error");
     next(error);
   }
 });
@@ -54,6 +56,7 @@ router.post(
           await User.findByIdAndUpdate(idUser, {
             recipesFavorites: arrayIdsNews.map(recipe => recipe._id)
           });
+         
           res.redirect("/favorites");
         })
         .catch(next);
